@@ -45,7 +45,7 @@ Built step by step; each step lands as its own commit with a passing test before
 
 ### Phase 1 — Basic implementation
 - [x] Repo scaffold: `backend/` (Express+TS) and `frontend/` (Vite+React+TS) skeletons, `docker-compose.yml`, Postgres service
-- [ ] Database schema (`users`, `uploads`, `log_entries`, `anomalies`) + migration/init script
+- [x] Database schema (`users`, `uploads`, `log_entries`, `anomalies`) + migration/init script
 - [ ] Backend auth: signup, login, JWT issue/verify middleware + tests
 - [ ] Backend: file upload endpoint (raw file to disk/volume) + tests
 - [ ] Backend: Zscaler log parser (line → structured row) + tests
