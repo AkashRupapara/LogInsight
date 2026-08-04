@@ -1,6 +1,7 @@
 import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import { authRouter } from './routes/auth';
 
 export function createApp(): Express {
   const app = express();
@@ -21,6 +22,8 @@ export function createApp(): Express {
   app.get('/api/health', (_req, res) => {
     res.json({ status: 'ok' });
   });
+
+  app.use('/api/auth', authRouter);
 
   // Central error handler: never leak stack traces or internal error details to clients.
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
