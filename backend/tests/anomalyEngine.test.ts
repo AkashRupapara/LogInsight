@@ -42,6 +42,17 @@ describe('detectRateSpikes', () => {
     expect(candidates.length).toBeGreaterThan(0);
     expect(candidates[0].rule_type).toBe('rate_spike');
   });
+
+  it('emits exactly one candidate per entry, not one per sliding-window step', () => {
+    const entries = Array.from({ length: 6 }, (_, i) =>
+      makeEntry({ id: i, ts: `2026-08-04T12:00:0${i}Z`, src_ip: '10.0.1.15' })
+    );
+
+    const candidates = detectRateSpikes(entries);
+    const entryIds = candidates.map((c) => c.log_entry_id);
+
+    expect(new Set(entryIds).size).toBe(entryIds.length);
+  });
 });
 
 describe('detectBlockedOrMalware', () => {

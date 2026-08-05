@@ -43,6 +43,11 @@ export function detectRateSpikes(entries: StoredLogEntry[]): AnomalyCandidate[] 
       (a, b) => new Date(a.ts).getTime() - new Date(b.ts).getTime()
     );
 
+    // Track the largest burst each entry was ever part of, rather than emitting
+    // a candidate per sliding-window step - otherwise one burst produces a
+    // separate near-duplicate anomaly for every step it overlaps.
+    const maxWindowCount = new Array(sorted.length).fill(0);
+
     let windowStart = 0;
     for (let i = 0; i < sorted.length; i++) {
       const windowEndTime = new Date(sorted[i].ts).getTime();
@@ -53,19 +58,23 @@ export function detectRateSpikes(entries: StoredLogEntry[]): AnomalyCandidate[] 
         windowStart++;
       }
       const windowCount = i - windowStart + 1;
-
-      if (windowCount >= RATE_SPIKE_THRESHOLD) {
-        const confidence = clampConfidence(windowCount / (RATE_SPIKE_THRESHOLD * 2));
-        for (let j = windowStart; j <= i; j++) {
-          candidates.push({
-            log_entry_id: sorted[j].id,
-            rule_type: 'rate_spike',
-            description: `${windowCount} requests from ${ip} within ${RATE_SPIKE_WINDOW_MS / 1000}s (threshold: ${RATE_SPIKE_THRESHOLD})`,
-            confidence,
-            severity: severityFromConfidence(confidence),
-          });
-        }
+      for (let j = windowStart; j <= i; j++) {
+        if (windowCount > maxWindowCount[j]) maxWindowCount[j] = windowCount;
       }
+    }
+
+    for (let idx = 0; idx < sorted.length; idx++) {
+      const windowCount = maxWindowCount[idx];
+      if (windowCount < RATE_SPIKE_THRESHOLD) continue;
+
+      const confidence = clampConfidence(windowCount / (RATE_SPIKE_THRESHOLD * 2));
+      candidates.push({
+        log_entry_id: sorted[idx].id,
+        rule_type: 'rate_spike',
+        description: `${windowCount} requests from ${ip} within ${RATE_SPIKE_WINDOW_MS / 1000}s (threshold: ${RATE_SPIKE_THRESHOLD})`,
+        confidence,
+        severity: severityFromConfidence(confidence),
+      });
     }
   }
 
