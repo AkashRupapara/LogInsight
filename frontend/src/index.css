@@ -416,3 +416,70 @@ td {
   border-bottom: 1px solid var(--border);
   white-space: nowrap;
 }
+
+.stat-tile-alert {
+  border-color: var(--status-critical);
+}
+
+.stat-tile-alert .stat-value {
+  color: var(--status-critical);
+}
+
+.row-anomalous {
+  background: rgba(208, 59, 59, 0.06);
+  border-left: 3px solid var(--status-critical);
+}
+
+.row-anomalous:hover {
+  background: rgba(208, 59, 59, 0.12);
+}
+
+.anomaly-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.anomaly-none {
+  color: var(--border);
+}
+
+.row-anomaly-detail td {
+  background: var(--code-bg);
+  white-space: normal;
+  padding: 10px 14px;
+}
+
+.anomaly-detail-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.anomaly-detail-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.anomaly-detail-severity {
+  font-weight: 600;
+  text-transform: capitalize;
+  min-width: 56px;
+}
+
+.anomaly-detail-desc {
+  flex: 1;
+  color: var(--text-h);
+}
+
+.anomaly-detail-confidence {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
