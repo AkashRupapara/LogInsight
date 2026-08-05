@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { apiFetch, ApiError } from '../api/client';
 import { AppHeader } from '../components/AppHeader';
@@ -18,43 +18,56 @@ export function DashboardPage() {
   const [summary, setSummary] = useState<Summary | null>(null);
   const [timeline, setTimeline] = useState<TimelineBucket[]>([]);
   const [entries, setEntries] = useState<LogEntry[]>([]);
-  const [nextCursor, setNextCursor] = useState<string | null>(null);
-  const [loadingMore, setLoadingMore] = useState(false);
+  const [loadingEntries, setLoadingEntries] = useState(true);
   const [anomalies, setAnomalies] = useState<Anomaly[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  // Sort and the "anomalies only" filter run client-side over `entries`, so they
+  // must operate on the whole file, not just the first page. We render the first
+  // page immediately for a fast first paint, then keep fetching pages in the
+  // background (independent of scroll position) until nextCursor is null.
   useEffect(() => {
+    let cancelled = false;
+    setLoadingEntries(true);
+
+    async function loadAllEntries() {
+      let cursor: string | undefined;
+      let all: LogEntry[] = [];
+      do {
+        const page = await apiFetch<EntriesPage>(
+          `/uploads/${id}/entries?limit=${PAGE_SIZE}${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`
+        );
+        if (cancelled) return;
+        all = all.concat(page.entries);
+        setEntries(all);
+        cursor = page.nextCursor ?? undefined;
+      } while (cursor);
+      if (!cancelled) setLoadingEntries(false);
+    }
+
     Promise.all([
       apiFetch<Summary>(`/uploads/${id}/summary`),
       apiFetch<TimelineBucket[]>(`/uploads/${id}/timeline`),
-      apiFetch<EntriesPage>(`/uploads/${id}/entries?limit=${PAGE_SIZE}`),
       apiFetch<Anomaly[]>(`/uploads/${id}/anomalies`),
     ])
-      .then(([s, t, entriesPage, a]) => {
+      .then(([s, t, a]) => {
+        if (cancelled) return;
         setSummary(s);
         setTimeline(t);
-        setEntries(entriesPage.entries);
-        setNextCursor(entriesPage.nextCursor);
         setAnomalies(a);
       })
-      .catch((err) => setError(err instanceof ApiError ? err.message : 'Failed to load upload'));
-  }, [id]);
+      .catch((err) => {
+        if (!cancelled) setError(err instanceof ApiError ? err.message : 'Failed to load upload');
+      });
 
-  const loadMore = useCallback(async () => {
-    if (!nextCursor || loadingMore) return;
-    setLoadingMore(true);
-    try {
-      const page = await apiFetch<EntriesPage>(
-        `/uploads/${id}/entries?limit=${PAGE_SIZE}&cursor=${encodeURIComponent(nextCursor)}`
-      );
-      setEntries((prev) => [...prev, ...page.entries]);
-      setNextCursor(page.nextCursor);
-    } catch (err) {
-      setError(err instanceof ApiError ? err.message : 'Failed to load more entries');
-    } finally {
-      setLoadingMore(false);
-    }
-  }, [id, nextCursor, loadingMore]);
+    loadAllEntries().catch((err) => {
+      if (!cancelled) setError(err instanceof ApiError ? err.message : 'Failed to load log entries');
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [id]);
 
   const anomaliesByEntry = useMemo(() => {
     const map = new Map<number, Anomaly[]>();
@@ -87,13 +100,7 @@ export function DashboardPage() {
             Rows highlighted in red were flagged by the anomaly engine — click one to see why and how confident the detector is.
           </p>
         )}
-        <LogTable
-          entries={entries}
-          anomaliesByEntry={anomaliesByEntry}
-          hasMore={nextCursor !== null}
-          loadingMore={loadingMore}
-          onLoadMore={loadMore}
-        />
+        <LogTable entries={entries} anomaliesByEntry={anomaliesByEntry} loading={loadingEntries} />
       </div>
     </div>
   );

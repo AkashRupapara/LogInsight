@@ -170,7 +170,7 @@ All routes are prefixed `/api`. Routes marked 🔒 require `Authorization: Beare
 | GET | `/uploads/:id` 🔒 | One upload record |
 | GET | `/uploads/:id/summary` 🔒 | Totals, allowed/blocked, unique IPs/users, top categories/IPs, anomaly count |
 | GET | `/uploads/:id/timeline` 🔒 | Hourly allowed/blocked counts for the chart |
-| GET | `/uploads/:id/entries?limit=&offset=` 🔒 | Paginated parsed log rows |
+| GET | `/uploads/:id/entries?limit=&cursor=` 🔒 | Cursor-paginated parsed log rows — returns `{ entries, nextCursor }`; pass `nextCursor` back as `cursor` for the next page, `null` means no more pages |
 | GET | `/uploads/:id/anomalies` 🔒 | Flagged anomalies for the upload, with rule, description, confidence, severity |
 
 ## Sample Log Files

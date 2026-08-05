@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { Pool } from 'pg';
 import { createApp } from '../../src/app';
+import { closePool } from '../../src/db/pool';
 
 const DATABASE_URL =
   process.env.DATABASE_URL ?? 'postgres://loginsight:loginsight@localhost:5432/loginsight';
@@ -17,6 +18,10 @@ describe('auth routes', () => {
 
   afterAll(async () => {
     await pool.end();
+    // `createApp()`'s routes go through the app's own shared pool (db/pool.ts),
+    // separate from the `pool` above used only for TRUNCATE - close it too or
+    // jest reports an open handle after this file's tests finish.
+    await closePool();
   });
 
   it('signs up a new user and returns a token', async () => {

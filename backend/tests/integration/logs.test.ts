@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { Pool } from 'pg';
 import { createApp } from '../../src/app';
+import { closePool } from '../../src/db/pool';
 
 const DATABASE_URL =
   process.env.DATABASE_URL ?? 'postgres://loginsight:loginsight@localhost:5432/loginsight';
@@ -28,6 +29,7 @@ describe('log analytics routes', () => {
 
   afterAll(async () => {
     await pool.end();
+    await closePool();
   });
 
   it('ingests a log file and serves summary/timeline/entries for it', async () => {
@@ -101,5 +103,25 @@ describe('log analytics routes', () => {
       (e: { id: number }) => e.id
     );
     expect(new Set(allIds).size).toBe(5);
+  });
+
+  it('returns 404 on another user\'s upload for every analytics route', async () => {
+    const uploadRes = await request(app)
+      .post('/api/uploads')
+      .set('Authorization', `Bearer ${token}`)
+      .attach('file', Buffer.from(SAMPLE_LOG), 'private.log');
+    const uploadId = uploadRes.body.id;
+
+    const otherSignup = await request(app)
+      .post('/api/auth/signup')
+      .send({ email: 'other-analyst@example.com', password: 'correct-horse' });
+    const otherToken = otherSignup.body.token;
+
+    for (const path of ['summary', 'timeline', 'entries', 'anomalies']) {
+      const res = await request(app)
+        .get(`/api/uploads/${uploadId}/${path}`)
+        .set('Authorization', `Bearer ${otherToken}`);
+      expect(res.status).toBe(404);
+    }
   });
 });

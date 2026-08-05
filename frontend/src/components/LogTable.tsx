@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 
 export interface LogEntry {
   id: number;
@@ -98,45 +98,21 @@ function SortableHeader({
 export function LogTable({
   entries,
   anomaliesByEntry,
-  hasMore = false,
-  loadingMore = false,
-  onLoadMore,
+  loading = false,
 }: {
   entries: LogEntry[];
   anomaliesByEntry: Map<number, Anomaly[]>;
-  hasMore?: boolean;
-  loadingMore?: boolean;
-  onLoadMore?: () => void;
+  // True while entries are still being fetched in the background. Sort and the
+  // "anomalies only" filter run over `entries`, so results are only complete
+  // once this goes false — a small loading row communicates that to the user.
+  loading?: boolean;
 }) {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>('time');
   const [sortDir, setSortDir] = useState<SortDir>('asc');
   const [anomalousOnly, setAnomalousOnly] = useState(false);
 
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const sentinelRef = useRef<HTMLTableRowElement>(null);
-
   const anomalousCount = anomaliesByEntry.size;
-
-  // Infinite scroll: fetch the next page once the sentinel row at the bottom
-  // of the (fixed-height, internally scrolling) table comes into view.
-  useEffect(() => {
-    if (!onLoadMore) return;
-    const root = scrollContainerRef.current;
-    const sentinel = sentinelRef.current;
-    if (!root || !sentinel) return;
-
-    const observer = new IntersectionObserver(
-      (observedEntries) => {
-        if (observedEntries[0]?.isIntersecting && hasMore && !loadingMore) {
-          onLoadMore();
-        }
-      },
-      { root, rootMargin: '200px' }
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, [onLoadMore, hasMore, loadingMore]);
 
   function toggleSort(key: SortKey) {
     if (sortKey === key) {
@@ -186,7 +162,7 @@ export function LogTable({
           {anomalousOnly ? 'No anomalous entries in this upload.' : 'No entries.'}
         </p>
       ) : (
-        <div className="log-table-scroll" ref={scrollContainerRef}>
+        <div className="log-table-scroll">
           <table className="log-table">
             <thead>
               <tr>
@@ -259,9 +235,11 @@ export function LogTable({
                   </Fragment>
                 );
               })}
-              <tr ref={sentinelRef} className="scroll-sentinel">
-                <td colSpan={7}>{loadingMore ? 'Loading more…' : hasMore ? '' : null}</td>
-              </tr>
+              {loading && (
+                <tr className="scroll-sentinel">
+                  <td colSpan={7}>Loading remaining rows…</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
