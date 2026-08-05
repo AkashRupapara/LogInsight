@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { authRouter } from './routes/auth';
 import { uploadsRouter } from './routes/uploads';
+import { logsRouter } from './routes/logs';
 
 export function createApp(): Express {
   const app = express();
@@ -26,6 +27,7 @@ export function createApp(): Express {
 
   app.use('/api/auth', authRouter);
   app.use('/api/uploads', uploadsRouter);
+  app.use('/api/uploads/:uploadId', logsRouter);
 
   // Central error handler: never leak stack traces or internal error details to clients.
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

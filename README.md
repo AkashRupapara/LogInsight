@@ -48,9 +48,9 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] Database schema (`users`, `uploads`, `log_entries`, `anomalies`) + migration/init script
 - [x] Backend auth: signup, login, JWT issue/verify middleware + tests
 - [x] Backend: file upload endpoint (raw file to disk/volume) + tests
-- [ ] Backend: Zscaler log parser (line → structured row) + tests
-- [ ] Backend: ingest service (parse file → bulk insert `log_entries`) + tests
-- [ ] Backend: summary/timeline/entries read endpoints + tests
+- [x] Backend: Zscaler log parser (line → structured row) + tests
+- [x] Backend: ingest service (parse file → bulk insert `log_entries`) + tests
+- [x] Backend: summary/timeline/entries read endpoints + tests
 - [ ] Frontend: auth pages (login/signup) + auth context wired to backend
 - [ ] Frontend: upload page
 - [ ] Frontend: dashboard — summary cards, timeline chart, paginated log table

@@ -6,6 +6,7 @@ import multer from 'multer';
 import { AuthenticatedRequest, requireAuth } from '../middleware/auth';
 import { asyncHandler } from '../utils/asyncHandler';
 import { createUpload, getUploadForUser, listUploadsForUser } from '../services/uploadService';
+import { ingestUploadFile } from '../services/ingestService';
 
 const UPLOAD_DIR = path.join(process.cwd(), 'uploads');
 const ALLOWED_EXTENSIONS = new Set(['.log', '.txt']);
@@ -51,7 +52,9 @@ uploadsRouter.post(
     const totalLines = contents.split('\n').filter((line) => line.trim().length > 0).length;
 
     const record = await createUpload(req.userId!, req.file.originalname, req.file.path, totalLines);
-    res.status(201).json(record);
+    await ingestUploadFile(record.id, req.file.path);
+    const finalRecord = await getUploadForUser(req.userId!, record.id);
+    res.status(201).json(finalRecord);
   })
 );
 
