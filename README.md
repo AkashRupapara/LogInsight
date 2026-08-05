@@ -81,7 +81,7 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] Sample log generator + committed example log files (normal + with-anomalies)
 - [x] README: setup instructions, AI-usage explanation, API reference (this file, filled in as we go)
 - [x] Responsive/basic styling pass
-- [ ] (Optional/bonus) live deployment
+- [x] (Optional/bonus) live deployment
 
 ## AI Usage
 
@@ -155,7 +155,7 @@ npm test
 
 ## Live Deployment
 
-**Live link:** _to be added — temporary deployment, up only for the duration of evaluation (see [Limitations](#limitations))._
+**Live link:** [log-insight-qoun.vercel.app](https://log-insight-qoun.vercel.app) — temporary deployment, up only for the duration of evaluation (see [Limitations](#limitations)).
 
 Deployed as two Vercel projects (frontend + backend) sharing a free [Neon](https://neon.tech) Postgres database. Steps to reproduce:
 
@@ -196,6 +196,15 @@ node sample-logs/generate-sample-logs.js
 ```
 
 The generator uses a seeded PRNG, so re-running it reproduces the same files.
+
+## Possible Extensions
+
+This was built as a focused prototype, per the brief's "functionality over production-readiness." A few natural next steps if it kept going:
+
+1. **LLM-assisted anomaly explanations.** Keep the rule-based engine as the decision-maker — it stays deterministic, auditable, and free of per-upload API cost — but pass each *already-flagged* anomaly to an LLM to turn it into a richer, plain-English write-up for the analyst (why it matters, what to check next), instead of today's fixed-template description. Detection itself never depends on the LLM, so a slow or bad API response can't cause a missed or wrong flag — it only makes the existing description read better.
+2. **Statistical/ML-based detection as a middle ground.** Add a detector using classical statistics (e.g. a z-score on bytes transferred per user, or a lightweight clustering pass) instead of fixed thresholds. This is "AI" in the traditional machine-learning sense, without an LLM's cost, latency, or non-determinism — a complement to the 4 existing rules, not a replacement.
+3. **Server-side sort/filter/pagination.** The dashboard currently loads the whole parsed file into the browser so client-side sort and the "anomalies only" filter are always correct over the full dataset — necessary because those were originally computed over only whatever page had loaded, which was a real bug caught during development. That's fine at hundreds of rows but wouldn't scale to a huge file; the next step is pushing sort/filter into the SQL query itself, with cursor pagination that accounts for whichever sort key is active.
+4. **Crash-safe ingestion retry.** Uploads are parsed synchronously from memory; if ingestion fails partway (a bad DB connection, a process restart), today's fix is re-uploading (see [Limitations](#limitations)). A more robust version would persist the raw file (e.g. to S3) and process it through a background job queue, so a failure could be retried without the user doing anything.
 
 ## Limitations
 
