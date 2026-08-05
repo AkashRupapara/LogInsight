@@ -55,5 +55,15 @@ describe('log analytics routes', () => {
       .set('Authorization', `Bearer ${token}`);
     expect(entriesRes.status).toBe(200);
     expect(entriesRes.body).toHaveLength(2);
+
+    expect(summaryRes.body.anomalyCount).toBeGreaterThan(0);
+
+    const anomaliesRes = await request(app)
+      .get(`/api/uploads/${uploadId}/anomalies`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(anomaliesRes.status).toBe(200);
+    expect(anomaliesRes.body.length).toBeGreaterThan(0);
+    expect(anomaliesRes.body[0]).toHaveProperty('confidence');
+    expect(anomaliesRes.body[0]).toHaveProperty('description');
   });
 });

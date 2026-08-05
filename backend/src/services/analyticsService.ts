@@ -10,6 +10,7 @@ export interface UploadSummary {
   endTs: string | null;
   topCategories: { category: string; count: number }[];
   topSrcIps: { srcIp: string; count: number }[];
+  anomalyCount: number;
 }
 
 export async function getSummary(uploadId: number): Promise<UploadSummary> {
@@ -43,6 +44,11 @@ export async function getSummary(uploadId: number): Promise<UploadSummary> {
     [uploadId]
   );
 
+  const anomalyCountRes = await pool.query(
+    `SELECT count(DISTINCT log_entry_id)::int AS count FROM anomalies WHERE upload_id = $1`,
+    [uploadId]
+  );
+
   const row = totalsRes.rows[0];
   return {
     total: row.total,
@@ -54,6 +60,7 @@ export async function getSummary(uploadId: number): Promise<UploadSummary> {
     endTs: row.end_ts,
     topCategories: categoriesRes.rows.map((r) => ({ category: r.category, count: r.count })),
     topSrcIps: srcIpsRes.rows.map((r) => ({ srcIp: r.src_ip, count: r.count })),
+    anomalyCount: anomalyCountRes.rows[0].count,
   };
 }
 
@@ -83,6 +90,25 @@ export async function getEntries(uploadId: number, limit: number, offset: number
   const res = await pool.query(
     `SELECT * FROM log_entries WHERE upload_id = $1 ORDER BY ts LIMIT $2 OFFSET $3`,
     [uploadId, limit, offset]
+  );
+  return res.rows;
+}
+
+export interface Anomaly {
+  id: number;
+  log_entry_id: number;
+  rule_type: string;
+  description: string;
+  confidence: number;
+  severity: 'low' | 'medium' | 'high';
+}
+
+export async function getAnomalies(uploadId: number): Promise<Anomaly[]> {
+  const pool = getPool();
+  const res = await pool.query<Anomaly>(
+    `SELECT id, log_entry_id, rule_type, description, confidence, severity
+     FROM anomalies WHERE upload_id = $1 ORDER BY confidence DESC`,
+    [uploadId]
   );
   return res.rows;
 }

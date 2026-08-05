@@ -57,11 +57,11 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] End-to-end check: sign up, log in, upload a sample file, see it on the dashboard
 
 ### Phase 2 — Bonus: anomaly detection
-- [ ] Anomaly engine: rate-spike-per-IP rule + test
-- [ ] Anomaly engine: blocked/malware-category rule + test
-- [ ] Anomaly engine: off-hours + large-transfer rule + test
-- [ ] Anomaly engine: rare domain/category rule + test
-- [ ] Wire anomaly engine into ingest pipeline, persist to `anomalies` table
+- [x] Anomaly engine: rate-spike-per-IP rule + test
+- [x] Anomaly engine: blocked/malware-category rule + test
+- [x] Anomaly engine: off-hours + large-transfer rule + test
+- [x] Anomaly engine: rare domain/category rule + test
+- [x] Wire anomaly engine into ingest pipeline, persist to `anomalies` table
 - [ ] Frontend: highlight anomalous rows in the log table, show explanation + confidence score
 
 ### Phase 3 — Polish & deliverables

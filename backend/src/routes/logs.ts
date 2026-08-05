@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { AuthenticatedRequest, requireAuth } from '../middleware/auth';
 import { asyncHandler } from '../utils/asyncHandler';
 import { getUploadForUser } from '../services/uploadService';
-import { getEntries, getSummary, getTimeline } from '../services/analyticsService';
+import { getAnomalies, getEntries, getSummary, getTimeline } from '../services/analyticsService';
 
 export const logsRouter = Router({ mergeParams: true });
 
@@ -48,5 +48,13 @@ logsRouter.get(
     const offset = Number(req.query.offset) || 0;
     const entries = await getEntries(Number(req.params.uploadId), limit, offset);
     res.json(entries);
+  })
+);
+
+logsRouter.get(
+  '/anomalies',
+  asyncHandler(async (req, res) => {
+    const anomalies = await getAnomalies(Number(req.params.uploadId));
+    res.json(anomalies);
   })
 );
