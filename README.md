@@ -80,19 +80,110 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] Frontend: highlight anomalous rows in the log table, show explanation + confidence score
 
 ### Phase 3 — Polish & deliverables
-- [ ] Sample log generator + committed example log files (normal + with-anomalies)
-- [ ] README: setup instructions, AI-usage explanation, API reference (this file, filled in as we go)
-- [ ] Responsive/basic styling pass
+- [x] Sample log generator + committed example log files (normal + with-anomalies)
+- [x] README: setup instructions, AI-usage explanation, API reference (this file, filled in as we go)
+- [x] Responsive/basic styling pass
 - [ ] (Optional/bonus) live deployment
 
 ## AI Usage
 
-_To be filled in as the anomaly detection and any AI-assisted tooling is implemented._
+**In the running application — no LLM at runtime.** The anomaly detection feature is deliberately **rule-based and statistical**, not LLM-based:
+
+- `detectRateSpikes` — sliding-window burst detection per source IP
+- `detectBlockedOrMalware` — flags proxy-blocked and malware-category hits
+- `detectOffHoursLargeTransfer` — large transfers outside business hours
+- `detectRareCategories` — suspicious categories, and categories seen only once in the upload
+
+(all in [`backend/src/services/anomalyEngine.ts`](backend/src/services/anomalyEngine.ts))
+
+Each rule is a small pure function you can read top to bottom, with a fixed, documented confidence formula. **Why not an LLM for detection:** a SOC tool needs anomaly flags that are reproducible (the same file always produces the same flags), auditable (a reviewer can see exactly why a threshold tripped), fast (runs synchronously during ingest, no API round-trip), and free of an external API dependency/cost per upload. A natural next step, if this went further, would be using an LLM only to turn an already-detected anomaly into a richer natural-language write-up for the analyst — detection would stay rule-based, and the LLM would be a presentation layer on top, not the decision-maker.
+
+**How AI was used to build this project:** the application code, tests, and this README were built with Claude Code (Anthropic's CLI coding agent) as a pair-programming tool, working step by step from the take-home brief through an interactive session — architecture decisions, code, and copy were reviewed and directed throughout rather than generated unattended.
 
 ## Local Setup
 
-_To be filled in once the Docker Compose stack is complete._
+### Option A — Docker Compose (recommended)
+
+Requires Docker Desktop (or another Docker Engine + Compose v2).
+
+```bash
+git clone https://github.com/AkashRupapara/LogInsight.git
+cd LogInsight
+docker compose up --build
+```
+
+This starts three services:
+- **postgres** (`localhost:5432`) — schema in [`backend/db/init.sql`](backend/db/init.sql) is applied automatically on first boot
+- **backend** (`localhost:4000`) — Express API
+- **frontend** (`localhost:5173`) — nginx serving the built React app, proxying `/api/*` to the backend
+
+Open **http://localhost:5173**, sign up, and upload a file from `sample-logs/`.
+
+To stop: `docker compose down` (add `-v` to also drop the Postgres volume and start fresh).
+
+### Option B — Run without Docker (two terminals)
+
+Needs Node.js 20+ and a local Postgres instance.
+
+```bash
+# 1. Create the database and apply the schema
+createdb loginsight
+psql loginsight < backend/db/init.sql
+
+# 2. Backend
+cd backend
+cp .env.example .env   # edit DATABASE_URL/JWT_SECRET if needed
+npm install
+npm run dev             # http://localhost:4000
+
+# 3. Frontend (separate terminal)
+cd frontend
+npm install
+npm run dev              # http://localhost:5173, proxies /api to :4000
+```
+
+### Running the tests
+
+```bash
+cd backend
+npm test                 # fast unit tests, no DB required
+
+docker compose up -d postgres   # if not already running
+npm run test:integration        # full suite incl. DB-backed integration tests
+
+cd ../frontend
+npm test
+```
+
+## API Reference
+
+All routes are prefixed `/api`. Routes marked 🔒 require `Authorization: Bearer <token>`.
+
+| Method | Path | Description |
+|---|---|---|
+| GET | `/health` | Liveness check |
+| POST | `/auth/signup` | Create an account, returns `{ user, token }` |
+| POST | `/auth/login` | Returns `{ user, token }` |
+| GET | `/auth/me` 🔒 | Current user |
+| POST | `/uploads` 🔒 | Multipart upload (`file` field, `.log`/`.txt`, ≤25MB) — parses, runs anomaly detection, returns the upload record |
+| GET | `/uploads` 🔒 | List the caller's uploads |
+| GET | `/uploads/:id` 🔒 | One upload record |
+| GET | `/uploads/:id/summary` 🔒 | Totals, allowed/blocked, unique IPs/users, top categories/IPs, anomaly count |
+| GET | `/uploads/:id/timeline` 🔒 | Hourly allowed/blocked counts for the chart |
+| GET | `/uploads/:id/entries?limit=&offset=` 🔒 | Paginated parsed log rows |
+| GET | `/uploads/:id/anomalies` 🔒 | Flagged anomalies for the upload, with rule, description, confidence, severity |
 
 ## Sample Log Files
 
-_See `sample-logs/` (added in Phase 3)._
+`sample-logs/` contains a generator and two example files (Zscaler-style CSV, see [`backend/src/services/zscalerParser.ts`](backend/src/services/zscalerParser.ts) for the exact field order):
+
+- **`zscaler_normal.log`** — a day of baseline traffic across 7 synthetic users, no anomalies
+- **`zscaler_with_anomalies.log`** — the same baseline plus one deliberately embedded example of each detection rule (a request-rate burst, a blocked malware download, a large off-hours transfer, and a rare/suspicious category hit)
+
+Regenerate them with:
+
+```bash
+node sample-logs/generate-sample-logs.js
+```
+
+The generator uses a seeded PRNG, so re-running it reproduces the same files.
