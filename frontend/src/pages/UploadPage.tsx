@@ -20,6 +20,7 @@ export function UploadPage() {
   const [uploads, setUploads] = useState<UploadRecord[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function refresh() {
@@ -32,16 +33,16 @@ export function UploadPage() {
   }, []);
 
   async function handleUpload() {
-    const file = fileInputRef.current?.files?.[0];
-    if (!file) return;
+    if (!selectedFile) return;
 
     setError(null);
     setUploading(true);
     try {
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', selectedFile);
       await apiFetch('/uploads', { method: 'POST', body: formData });
       if (fileInputRef.current) fileInputRef.current.value = '';
+      setSelectedFile(null);
       await refresh();
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Upload failed');
@@ -62,8 +63,13 @@ export function UploadPage() {
             summary you can drill into on the next screen — usually within a few seconds.
           </p>
           <div className="upload-box">
-            <input ref={fileInputRef} type="file" accept=".log,.txt" />
-            <button onClick={handleUpload} disabled={uploading}>
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".log,.txt"
+              onChange={(e) => setSelectedFile(e.target.files?.[0] ?? null)}
+            />
+            <button onClick={handleUpload} disabled={uploading || !selectedFile}>
               {uploading ? 'Uploading & analyzing…' : 'Upload log file'}
             </button>
             {error && <p className="form-error">{error}</p>}

@@ -334,6 +334,16 @@ textarea {
   border-radius: 8px;
 }
 
+.upload-box input[type='file'] {
+  width: auto;
+  flex: 1 1 280px;
+  max-width: 420px;
+}
+
+.upload-box button {
+  flex-shrink: 0;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
