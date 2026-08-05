@@ -1,0 +1,336 @@
+2026-08-03T00:00:13.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://linkedin.example/3y8,GET,Allowed,,Social Networking,,,1284,2076,200,Mozilla/5.0
+2026-08-03T00:02:14.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://wikipedia.example/1a1k,GET,Allowed,,General,,,590,32784,200,Mozilla/5.0
+2026-08-03T00:04:39.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://lookup.example/lgx,GET,Allowed,,Search Engines,,,1513,9481,200,Mozilla/5.0
+2026-08-03T00:06:39.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://example.com/1164,GET,Allowed,,General,,,1323,45477,200,Mozilla/5.0
+2026-08-03T00:10:22.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://search.example/1qfa,GET,Allowed,,Search Engines,,,738,22994,200,Mozilla/5.0
+2026-08-03T00:12:34.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://headlines.example/1u9b,GET,Allowed,,News,,,1115,10709,200,Mozilla/5.0
+2026-08-03T00:16:01.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://example.com/1ogi,GET,Allowed,,General,,,1160,1856,200,Mozilla/5.0
+2026-08-03T00:16:23.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://store.example/10fz,GET,Allowed,,Shopping,,,599,44602,200,Mozilla/5.0
+2026-08-03T00:17:03.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://news.example/1ewx,GET,Allowed,,News,,,1461,35154,200,Mozilla/5.0
+2026-08-03T00:26:02.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://shop.example/1a07,GET,Allowed,,Shopping,,,745,36970,200,Mozilla/5.0
+2026-08-03T00:31:13.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://search.example/24tn,GET,Allowed,,Search Engines,,,1225,46306,200,Mozilla/5.0
+2026-08-03T00:36:03.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://linkedin.example/1fod,GET,Allowed,,Social Networking,,,449,26829,200,Mozilla/5.0
+2026-08-03T00:44:44.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://news.example/12mw,GET,Allowed,,News,,,1473,31031,200,Mozilla/5.0
+2026-08-03T00:55:40.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://wikipedia.example/x9l,GET,Allowed,,General,,,1984,7364,200,Mozilla/5.0
+2026-08-03T01:00:34.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://lookup.example/1vl4,GET,Allowed,,Search Engines,,,1916,10949,200,Mozilla/5.0
+2026-08-03T01:09:48.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://shop.example/fyv,GET,Allowed,,Shopping,,,1357,44843,200,Mozilla/5.0
+2026-08-03T01:10:09.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://shop.example/9mz,GET,Allowed,,Shopping,,,727,2620,200,Mozilla/5.0
+2026-08-03T01:14:07.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/oqg,GET,Allowed,,News,,,1438,11544,200,Mozilla/5.0
+2026-08-03T01:17:29.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://salesforce.example/28u,GET,Allowed,,Business,,,541,50176,200,Mozilla/5.0
+2026-08-03T01:17:42.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://linkedin.example/1hmq,GET,Allowed,,Social Networking,,,2088,45009,200,Mozilla/5.0
+2026-08-03T01:19:34.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://search.example/a4z,GET,Allowed,,Search Engines,,,1827,18985,200,Mozilla/5.0
+2026-08-03T01:23:40.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://social.example/1gxx,GET,Allowed,,Social Networking,,,897,17306,200,Mozilla/5.0
+2026-08-03T01:25:54.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://social.example/7s7,GET,Allowed,,Social Networking,,,1493,16165,200,Mozilla/5.0
+2026-08-03T01:34:20.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://video.example/d6j,GET,Allowed,,Streaming Media,,,1221,15125,200,Mozilla/5.0
+2026-08-03T01:36:14.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://social.example/3nv,GET,Allowed,,Social Networking,,,1511,35918,200,Mozilla/5.0
+2026-08-03T01:47:09.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://video.example/10oj,GET,Allowed,,Streaming Media,,,1743,6998,200,Mozilla/5.0
+2026-08-03T01:53:44.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://news.example/1b4u,GET,Allowed,,News,,,1192,29964,200,Mozilla/5.0
+2026-08-03T01:58:21.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://docs.example/1hzl,GET,Allowed,,Business,,,546,21143,200,Mozilla/5.0
+2026-08-03T02:01:11.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://wikipedia.example/1k1o,GET,Allowed,,General,,,2011,44473,200,Mozilla/5.0
+2026-08-03T02:11:45.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://store.example/y82,GET,Allowed,,Shopping,,,1038,23453,200,Mozilla/5.0
+2026-08-03T02:17:27.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://linkedin.example/1j9x,GET,Allowed,,Social Networking,,,1687,39739,200,Mozilla/5.0
+2026-08-03T02:23:22.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://linkedin.example/11yn,GET,Allowed,,Social Networking,,,1818,42659,200,Mozilla/5.0
+2026-08-03T02:25:30.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/be4,GET,Allowed,,News,,,1109,13869,200,Mozilla/5.0
+2026-08-03T02:27:58.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://shop.example/l2m,GET,Allowed,,Shopping,,,378,2883,200,Mozilla/5.0
+2026-08-03T02:31:50.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://linkedin.example/xqe,GET,Allowed,,Social Networking,,,369,688,200,Mozilla/5.0
+2026-08-03T02:34:39.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://salesforce.example/tbd,GET,Allowed,,Business,,,1524,46131,200,Mozilla/5.0
+2026-08-03T02:35:57.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://news.example/1vry,GET,Allowed,,News,,,1461,17962,200,Mozilla/5.0
+2026-08-03T02:44:37.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://example.com/d2a,GET,Allowed,,General,,,1113,34332,200,Mozilla/5.0
+2026-08-03T02:45:38.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://music.example/1cqh,GET,Allowed,,Streaming Media,,,1773,43148,200,Mozilla/5.0
+2026-08-03T02:48:42.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://social.example/1uy3,GET,Allowed,,Social Networking,,,1151,42518,200,Mozilla/5.0
+2026-08-03T02:53:40.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://social.example/1bqq,GET,Allowed,,Social Networking,,,1715,10920,200,Mozilla/5.0
+2026-08-03T02:56:15.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://shop.example/1t6a,GET,Allowed,,Shopping,,,403,18787,200,Mozilla/5.0
+2026-08-03T03:01:19.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://news.example/lx9,GET,Allowed,,News,,,1766,27333,200,Mozilla/5.0
+2026-08-03T03:03:34.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/1fkk,GET,Allowed,,Business,,,1222,49332,200,Mozilla/5.0
+2026-08-03T03:05:55.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/slh,GET,Allowed,,Search Engines,,,559,35638,200,Mozilla/5.0
+2026-08-03T03:08:53.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://video.example/1v6h,GET,Allowed,,Streaming Media,,,960,25623,200,Mozilla/5.0
+2026-08-03T03:12:17.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://music.example/kjl,GET,Allowed,,Streaming Media,,,1136,43500,200,Mozilla/5.0
+2026-08-03T03:17:12.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://video.example/l7e,GET,Allowed,,Streaming Media,,,1361,39060,200,Mozilla/5.0
+2026-08-03T03:23:12.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://video.example/1vw3,GET,Allowed,,Streaming Media,,,926,17482,200,Mozilla/5.0
+2026-08-03T03:31:58.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://lookup.example/1uyd,GET,Allowed,,Search Engines,,,1483,8043,200,Mozilla/5.0
+2026-08-03T03:32:55.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://lookup.example/dn7,GET,Allowed,,Search Engines,,,256,5293,200,Mozilla/5.0
+2026-08-03T03:33:50.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://wikipedia.example/1lvm,GET,Allowed,,General,,,1422,40319,200,Mozilla/5.0
+2026-08-03T03:44:17.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://search.example/1tc1,GET,Allowed,,Search Engines,,,1905,27736,200,Mozilla/5.0
+2026-08-03T03:45:00.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://linkedin.example/16ro,GET,Allowed,,Social Networking,,,1192,48848,200,Mozilla/5.0
+2026-08-03T03:56:07.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://store.example/1qhr,GET,Allowed,,Shopping,,,723,25201,200,Mozilla/5.0
+2026-08-03T03:59:03.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://search.example/1cqb,GET,Allowed,,Search Engines,,,1435,43734,200,Mozilla/5.0
+2026-08-03T04:05:05.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://example.com/1i0i,GET,Allowed,,General,,,639,43303,200,Mozilla/5.0
+2026-08-03T04:05:51.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://example.com/1rwh,GET,Allowed,,General,,,1775,34667,200,Mozilla/5.0
+2026-08-03T04:06:59.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://example.com/q9v,GET,Allowed,,General,,,580,11996,200,Mozilla/5.0
+2026-08-03T04:08:17.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://wikipedia.example/xay,GET,Allowed,,General,,,1840,40106,200,Mozilla/5.0
+2026-08-03T04:12:23.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://search.example/aez,GET,Allowed,,Search Engines,,,1419,30639,200,Mozilla/5.0
+2026-08-03T04:14:23.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://social.example/k2l,GET,Allowed,,Social Networking,,,1540,26452,200,Mozilla/5.0
+2026-08-03T04:26:34.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://store.example/13yi,GET,Allowed,,Shopping,,,186,8879,200,Mozilla/5.0
+2026-08-03T04:28:16.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://example.com/1wx5,GET,Allowed,,General,,,1450,21556,200,Mozilla/5.0
+2026-08-03T04:29:17.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://shop.example/1oc1,GET,Allowed,,Shopping,,,1478,46430,200,Mozilla/5.0
+2026-08-03T04:29:36.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://video.example/b85,GET,Allowed,,Streaming Media,,,1204,34230,200,Mozilla/5.0
+2026-08-03T04:33:19.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://docs.example/149b,GET,Allowed,,Business,,,1590,2992,200,Mozilla/5.0
+2026-08-03T04:37:33.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://music.example/qmj,GET,Allowed,,Streaming Media,,,299,31860,200,Mozilla/5.0
+2026-08-03T04:44:04.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://search.example/frv,GET,Allowed,,Search Engines,,,1670,25753,200,Mozilla/5.0
+2026-08-03T04:59:25.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://store.example/qcx,GET,Allowed,,Shopping,,,1398,2104,200,Mozilla/5.0
+2026-08-03T05:03:13.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://store.example/115w,GET,Allowed,,Shopping,,,1124,24269,200,Mozilla/5.0
+2026-08-03T05:09:30.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://music.example/qpy,GET,Allowed,,Streaming Media,,,509,26405,200,Mozilla/5.0
+2026-08-03T05:10:59.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://headlines.example/1zug,GET,Allowed,,News,,,658,31405,200,Mozilla/5.0
+2026-08-03T05:12:41.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://linkedin.example/1bt7,GET,Allowed,,Social Networking,,,1069,34213,200,Mozilla/5.0
+2026-08-03T05:27:01.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://shop.example/1ing,GET,Allowed,,Shopping,,,107,35055,200,Mozilla/5.0
+2026-08-03T05:28:06.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://search.example/1j5o,GET,Allowed,,Search Engines,,,1290,47779,200,Mozilla/5.0
+2026-08-03T05:30:27.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://docs.example/6qy,GET,Allowed,,Business,,,372,50249,200,Mozilla/5.0
+2026-08-03T05:39:57.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://wikipedia.example/1mvy,GET,Allowed,,General,,,1415,41003,200,Mozilla/5.0
+2026-08-03T05:45:39.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://docs.example/z65,GET,Allowed,,Business,,,465,32632,200,Mozilla/5.0
+2026-08-03T05:45:43.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://social.example/jgi,GET,Allowed,,Social Networking,,,1098,2240,200,Mozilla/5.0
+2026-08-03T05:49:59.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://social.example/1y95,GET,Allowed,,Social Networking,,,224,26303,200,Mozilla/5.0
+2026-08-03T05:51:42.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://news.example/jeq,GET,Allowed,,News,,,1107,2549,200,Mozilla/5.0
+2026-08-03T05:54:09.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://social.example/17s7,GET,Allowed,,Social Networking,,,1089,22600,200,Mozilla/5.0
+2026-08-03T05:57:27.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://shop.example/3mq,GET,Allowed,,Shopping,,,752,36097,200,Mozilla/5.0
+2026-08-03T06:02:04.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://social.example/1lhq,GET,Allowed,,Social Networking,,,1368,582,200,Mozilla/5.0
+2026-08-03T06:08:16.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/svn,GET,Allowed,,Business,,,1370,49222,200,Mozilla/5.0
+2026-08-03T06:09:33.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://wikipedia.example/2ol,GET,Allowed,,General,,,1082,44214,200,Mozilla/5.0
+2026-08-03T06:15:15.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://store.example/100y,GET,Allowed,,Shopping,,,862,42597,200,Mozilla/5.0
+2026-08-03T06:24:34.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://lookup.example/18j,GET,Allowed,,Search Engines,,,1468,44264,200,Mozilla/5.0
+2026-08-03T06:29:12.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://store.example/1b2r,GET,Allowed,,Shopping,,,1803,33714,200,Mozilla/5.0
+2026-08-03T06:35:40.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://wikipedia.example/1pdm,GET,Allowed,,General,,,967,30317,200,Mozilla/5.0
+2026-08-03T06:37:52.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://news.example/14ue,GET,Allowed,,News,,,2091,9134,200,Mozilla/5.0
+2026-08-03T06:39:20.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://salesforce.example/sw6,GET,Allowed,,Business,,,1549,3019,200,Mozilla/5.0
+2026-08-03T06:40:45.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://search.example/1suy,GET,Allowed,,Search Engines,,,1007,46654,200,Mozilla/5.0
+2026-08-03T06:40:45.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://store.example/166b,GET,Allowed,,Shopping,,,1360,45304,200,Mozilla/5.0
+2026-08-03T06:46:17.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://example.com/7dg,GET,Allowed,,General,,,1919,503,200,Mozilla/5.0
+2026-08-03T06:50:05.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://headlines.example/d1i,GET,Allowed,,News,,,2053,9563,200,Mozilla/5.0
+2026-08-03T06:59:03.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://music.example/1qml,GET,Allowed,,Streaming Media,,,2014,41062,200,Mozilla/5.0
+2026-08-03T07:01:08.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://wikipedia.example/low,GET,Allowed,,General,,,186,23475,200,Mozilla/5.0
+2026-08-03T07:02:59.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://store.example/1tny,GET,Allowed,,Shopping,,,1260,21255,200,Mozilla/5.0
+2026-08-03T07:18:57.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://social.example/yes,GET,Allowed,,Social Networking,,,452,29015,200,Mozilla/5.0
+2026-08-03T07:20:17.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://store.example/1wrj,GET,Allowed,,Shopping,,,1486,17667,200,Mozilla/5.0
+2026-08-03T07:24:20.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/fap,GET,Allowed,,Search Engines,,,1585,33133,200,Mozilla/5.0
+2026-08-03T07:24:31.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://salesforce.example/1ise,GET,Allowed,,Business,,,864,16828,200,Mozilla/5.0
+2026-08-03T07:26:37.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://shop.example/19di,GET,Allowed,,Shopping,,,1420,31782,200,Mozilla/5.0
+2026-08-03T07:30:44.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://news.example/m7b,GET,Allowed,,News,,,1988,31851,200,Mozilla/5.0
+2026-08-03T07:35:17.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://headlines.example/f0k,GET,Allowed,,News,,,370,35865,200,Mozilla/5.0
+2026-08-03T07:43:57.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://docs.example/20sb,GET,Allowed,,Business,,,962,30316,200,Mozilla/5.0
+2026-08-03T07:53:59.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://store.example/1wk6,GET,Allowed,,Shopping,,,1274,43209,200,Mozilla/5.0
+2026-08-03T07:54:33.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://linkedin.example/i01,GET,Allowed,,Social Networking,,,401,16493,200,Mozilla/5.0
+2026-08-03T07:58:57.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://linkedin.example/1n0,GET,Allowed,,Social Networking,,,1403,30674,200,Mozilla/5.0
+2026-08-03T07:59:19.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://docs.example/h9w,GET,Allowed,,Business,,,1991,15813,200,Mozilla/5.0
+2026-08-03T08:02:54.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://example.com/1n2z,GET,Allowed,,General,,,1153,23070,200,Mozilla/5.0
+2026-08-03T08:10:27.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://store.example/1m11,GET,Allowed,,Shopping,,,1980,20763,200,Mozilla/5.0
+2026-08-03T08:11:57.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://headlines.example/1u8p,GET,Allowed,,News,,,2005,23789,200,Mozilla/5.0
+2026-08-03T08:13:30.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://video.example/1i9j,GET,Allowed,,Streaming Media,,,1172,22532,200,Mozilla/5.0
+2026-08-03T08:14:17.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://shop.example/13va,GET,Allowed,,Shopping,,,1557,29083,200,Mozilla/5.0
+2026-08-03T08:17:29.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://shop.example/8pa,GET,Allowed,,Shopping,,,1788,19392,200,Mozilla/5.0
+2026-08-03T08:19:28.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://news.example/1drh,GET,Allowed,,News,,,1843,44564,200,Mozilla/5.0
+2026-08-03T08:20:24.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://headlines.example/103h,GET,Allowed,,News,,,1731,4715,200,Mozilla/5.0
+2026-08-03T08:22:33.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/188k,GET,Allowed,,Business,,,447,2239,200,Mozilla/5.0
+2026-08-03T08:22:44.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://music.example/xuc,GET,Allowed,,Streaming Media,,,797,37968,200,Mozilla/5.0
+2026-08-03T08:24:31.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://video.example/x3o,GET,Allowed,,Streaming Media,,,184,8227,200,Mozilla/5.0
+2026-08-03T08:31:33.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://store.example/1xi7,GET,Allowed,,Shopping,,,1868,4898,200,Mozilla/5.0
+2026-08-03T08:41:58.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://wikipedia.example/glq,GET,Allowed,,General,,,657,31533,200,Mozilla/5.0
+2026-08-03T08:51:26.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://wikipedia.example/14c1,GET,Allowed,,General,,,1296,49306,200,Mozilla/5.0
+2026-08-03T09:00:05.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://lookup.example/1zwq,GET,Allowed,,Search Engines,,,553,7272,200,Mozilla/5.0
+2026-08-03T09:00:38.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://music.example/1cua,GET,Allowed,,Streaming Media,,,281,32243,200,Mozilla/5.0
+2026-08-03T09:03:50.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://music.example/1c57,GET,Allowed,,Streaming Media,,,934,40908,200,Mozilla/5.0
+2026-08-03T09:04:08.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://store.example/1abe,GET,Allowed,,Shopping,,,1416,30031,200,Mozilla/5.0
+2026-08-03T09:07:04.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://video.example/1m1s,GET,Allowed,,Streaming Media,,,1250,3772,200,Mozilla/5.0
+2026-08-03T09:07:28.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/1p6d,GET,Allowed,,Business,,,2051,43102,200,Mozilla/5.0
+2026-08-03T09:12:19.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://wikipedia.example/31y,GET,Allowed,,General,,,1952,17354,200,Mozilla/5.0
+2026-08-03T09:22:09.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://example.com/1xgg,GET,Allowed,,General,,,2083,28338,200,Mozilla/5.0
+2026-08-03T09:27:03.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://news.example/ugr,GET,Allowed,,News,,,204,19641,200,Mozilla/5.0
+2026-08-03T09:28:54.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://news.example/2293,GET,Allowed,,News,,,1631,11987,200,Mozilla/5.0
+2026-08-03T09:37:10.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://video.example/1t0x,GET,Allowed,,Streaming Media,,,539,49102,200,Mozilla/5.0
+2026-08-03T09:41:16.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://search.example/1tdx,GET,Allowed,,Search Engines,,,552,26777,200,Mozilla/5.0
+2026-08-03T09:53:14.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/139z,GET,Allowed,,Business,,,1745,11061,200,Mozilla/5.0
+2026-08-03T09:57:08.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://music.example/bdd,GET,Allowed,,Streaming Media,,,820,14616,200,Mozilla/5.0
+2026-08-03T10:03:42.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://music.example/zhk,GET,Allowed,,Streaming Media,,,693,13890,200,Mozilla/5.0
+2026-08-03T10:13:27.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://news.example/20fj,GET,Allowed,,News,,,498,12045,200,Mozilla/5.0
+2026-08-03T10:15:26.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://wikipedia.example/6wp,GET,Allowed,,General,,,1566,27976,200,Mozilla/5.0
+2026-08-03T10:21:15.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://docs.example/1p0l,GET,Allowed,,Business,,,1221,49924,200,Mozilla/5.0
+2026-08-03T10:22:05.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://salesforce.example/2ab,GET,Allowed,,Business,,,1518,8271,200,Mozilla/5.0
+2026-08-03T10:25:44.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://search.example/1c11,GET,Allowed,,Search Engines,,,1399,32924,200,Mozilla/5.0
+2026-08-03T10:27:10.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://headlines.example/19md,GET,Allowed,,News,,,701,39591,200,Mozilla/5.0
+2026-08-03T10:29:35.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://search.example/1jug,GET,Allowed,,Search Engines,,,810,48362,200,Mozilla/5.0
+2026-08-03T10:36:23.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://store.example/wx0,GET,Allowed,,Shopping,,,910,18104,200,Mozilla/5.0
+2026-08-03T10:39:11.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://news.example/23j6,GET,Allowed,,News,,,1944,22127,200,Mozilla/5.0
+2026-08-03T10:52:21.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://lookup.example/115d,GET,Allowed,,Search Engines,,,835,30418,200,Mozilla/5.0
+2026-08-03T10:52:40.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://search.example/1o1k,GET,Allowed,,Search Engines,,,393,23447,200,Mozilla/5.0
+2026-08-03T10:55:26.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://video.example/12bf,GET,Allowed,,Streaming Media,,,1831,14044,200,Mozilla/5.0
+2026-08-03T10:58:54.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/vq3,GET,Allowed,,News,,,684,34476,200,Mozilla/5.0
+2026-08-03T11:07:07.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://search.example/17q2,GET,Allowed,,Search Engines,,,1831,20978,200,Mozilla/5.0
+2026-08-03T11:10:05.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://salesforce.example/tk4,GET,Allowed,,Business,,,2037,24568,200,Mozilla/5.0
+2026-08-03T11:10:30.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://shop.example/19qy,GET,Allowed,,Shopping,,,807,24958,200,Mozilla/5.0
+2026-08-03T11:13:30.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://music.example/1dkr,GET,Allowed,,Streaming Media,,,873,38194,200,Mozilla/5.0
+2026-08-03T11:15:07.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://wikipedia.example/1g6,GET,Allowed,,General,,,359,36847,200,Mozilla/5.0
+2026-08-03T11:15:09.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://store.example/l7o,GET,Allowed,,Shopping,,,1885,40327,200,Mozilla/5.0
+2026-08-03T11:15:20.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://wikipedia.example/1m20,GET,Allowed,,General,,,1881,24967,200,Mozilla/5.0
+2026-08-03T11:17:15.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://music.example/j23,GET,Allowed,,Streaming Media,,,709,10874,200,Mozilla/5.0
+2026-08-03T11:22:00.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://social.example/m7f,GET,Allowed,,Social Networking,,,2032,48525,200,Mozilla/5.0
+2026-08-03T11:34:03.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://social.example/6mu,GET,Allowed,,Social Networking,,,1855,14807,200,Mozilla/5.0
+2026-08-03T11:37:38.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://store.example/1yfq,GET,Allowed,,Shopping,,,914,48410,200,Mozilla/5.0
+2026-08-03T11:43:00.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://music.example/kip,GET,Allowed,,Streaming Media,,,1749,18751,200,Mozilla/5.0
+2026-08-03T11:49:08.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://wikipedia.example/1jg7,GET,Allowed,,General,,,1770,12640,200,Mozilla/5.0
+2026-08-03T11:52:13.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://music.example/1388,GET,Allowed,,Streaming Media,,,877,43253,200,Mozilla/5.0
+2026-08-03T12:07:52.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://headlines.example/1kcb,GET,Allowed,,News,,,1566,48704,200,Mozilla/5.0
+2026-08-03T12:11:42.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://wikipedia.example/1c09,GET,Allowed,,General,,,655,48941,200,Mozilla/5.0
+2026-08-03T12:12:35.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://shop.example/1o3v,GET,Allowed,,Shopping,,,695,1537,200,Mozilla/5.0
+2026-08-03T12:18:00.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://linkedin.example/2554,GET,Allowed,,Social Networking,,,1621,37914,200,Mozilla/5.0
+2026-08-03T12:22:28.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://social.example/sf5,GET,Allowed,,Social Networking,,,500,37461,200,Mozilla/5.0
+2026-08-03T12:28:32.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://linkedin.example/gr3,GET,Allowed,,Social Networking,,,1467,41022,200,Mozilla/5.0
+2026-08-03T12:29:37.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://music.example/1iab,GET,Allowed,,Streaming Media,,,1808,18652,200,Mozilla/5.0
+2026-08-03T12:31:24.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://example.com/iba,GET,Allowed,,General,,,1713,23632,200,Mozilla/5.0
+2026-08-03T12:31:51.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://search.example/297,GET,Allowed,,Search Engines,,,1097,3999,200,Mozilla/5.0
+2026-08-03T12:37:04.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://example.com/dfw,GET,Allowed,,General,,,1847,5485,200,Mozilla/5.0
+2026-08-03T12:47:30.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://social.example/1bth,GET,Allowed,,Social Networking,,,1220,26806,200,Mozilla/5.0
+2026-08-03T12:48:43.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://music.example/1uai,GET,Allowed,,Streaming Media,,,1301,45745,200,Mozilla/5.0
+2026-08-03T12:50:21.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://video.example/65,GET,Allowed,,Streaming Media,,,1751,39904,200,Mozilla/5.0
+2026-08-03T12:58:07.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://lookup.example/iq1,GET,Allowed,,Search Engines,,,1690,4004,200,Mozilla/5.0
+2026-08-03T13:03:49.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://wikipedia.example/tt2,GET,Allowed,,General,,,360,31982,200,Mozilla/5.0
+2026-08-03T13:08:44.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://linkedin.example/p6b,GET,Allowed,,Social Networking,,,565,11457,200,Mozilla/5.0
+2026-08-03T13:08:46.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://docs.example/22t8,GET,Allowed,,Business,,,786,17011,200,Mozilla/5.0
+2026-08-03T13:11:02.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/1wge,GET,Allowed,,Business,,,900,42065,200,Mozilla/5.0
+2026-08-03T13:13:43.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://docs.example/10gu,GET,Allowed,,Business,,,1061,49206,200,Mozilla/5.0
+2026-08-03T13:14:42.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://salesforce.example/hig,GET,Allowed,,Business,,,2019,8384,200,Mozilla/5.0
+2026-08-03T13:28:51.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/14d7,GET,Allowed,,News,,,995,4013,200,Mozilla/5.0
+2026-08-03T13:29:42.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://search.example/1ui,GET,Allowed,,Search Engines,,,664,11775,200,Mozilla/5.0
+2026-08-03T13:32:07.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://wikipedia.example/13en,GET,Allowed,,General,,,1403,6340,200,Mozilla/5.0
+2026-08-03T13:33:44.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://search.example/1y18,GET,Allowed,,Search Engines,,,1993,36258,200,Mozilla/5.0
+2026-08-03T13:52:25.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://salesforce.example/2nf,GET,Allowed,,Business,,,488,12646,200,Mozilla/5.0
+2026-08-03T13:53:53.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/pm6,GET,Allowed,,Search Engines,,,440,29545,200,Mozilla/5.0
+2026-08-03T13:53:54.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://store.example/1smv,GET,Allowed,,Shopping,,,1490,36457,200,Mozilla/5.0
+2026-08-03T13:56:18.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://video.example/12da,GET,Allowed,,Streaming Media,,,765,25779,200,Mozilla/5.0
+2026-08-03T14:07:35.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://docs.example/h8l,GET,Allowed,,Business,,,1222,20825,200,Mozilla/5.0
+2026-08-03T14:13:08.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://video.example/1hrt,GET,Allowed,,Streaming Media,,,1749,26259,200,Mozilla/5.0
+2026-08-03T14:13:37.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://news.example/ag9,GET,Allowed,,News,,,1091,17362,200,Mozilla/5.0
+2026-08-03T14:14:17.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://store.example/201y,GET,Allowed,,Shopping,,,1638,40555,200,Mozilla/5.0
+2026-08-03T14:14:20.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://news.example/iqm,GET,Allowed,,News,,,1662,2663,200,Mozilla/5.0
+2026-08-03T14:24:58.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://music.example/1klx,GET,Allowed,,Streaming Media,,,124,26868,200,Mozilla/5.0
+2026-08-03T14:25:54.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://lookup.example/zax,GET,Allowed,,Search Engines,,,276,28638,200,Mozilla/5.0
+2026-08-03T14:26:02.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://music.example/1cm1,GET,Allowed,,Streaming Media,,,933,32195,200,Mozilla/5.0
+2026-08-03T14:29:01.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://social.example/1ap9,GET,Allowed,,Social Networking,,,1847,16233,200,Mozilla/5.0
+2026-08-03T14:36:46.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://headlines.example/181w,GET,Allowed,,News,,,607,25019,200,Mozilla/5.0
+2026-08-03T14:38:30.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://salesforce.example/9f5,GET,Allowed,,Business,,,1923,36213,200,Mozilla/5.0
+2026-08-03T14:46:08.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://shop.example/1rmn,GET,Allowed,,Shopping,,,1343,19958,200,Mozilla/5.0
+2026-08-03T14:50:07.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://lookup.example/4bz,GET,Allowed,,Search Engines,,,1968,17345,200,Mozilla/5.0
+2026-08-03T14:55:08.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://salesforce.example/46v,GET,Allowed,,Business,,,952,14534,200,Mozilla/5.0
+2026-08-03T15:04:38.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://news.example/yt8,GET,Allowed,,News,,,294,37459,200,Mozilla/5.0
+2026-08-03T15:06:05.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://music.example/253y,GET,Allowed,,Streaming Media,,,1024,21539,200,Mozilla/5.0
+2026-08-03T15:06:59.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://salesforce.example/20zd,GET,Allowed,,Business,,,908,3853,200,Mozilla/5.0
+2026-08-03T15:09:31.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://example.com/1nm2,GET,Allowed,,General,,,226,2712,200,Mozilla/5.0
+2026-08-03T15:11:06.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://store.example/tbk,GET,Allowed,,Shopping,,,1979,9414,200,Mozilla/5.0
+2026-08-03T15:18:58.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://salesforce.example/121g,GET,Allowed,,Business,,,529,39291,200,Mozilla/5.0
+2026-08-03T15:24:49.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://wikipedia.example/1fpc,GET,Allowed,,General,,,459,46235,200,Mozilla/5.0
+2026-08-03T15:33:12.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://store.example/1cvu,GET,Allowed,,Shopping,,,1578,14823,200,Mozilla/5.0
+2026-08-03T15:34:31.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://example.com/651,GET,Allowed,,General,,,169,10017,200,Mozilla/5.0
+2026-08-03T15:36:33.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://news.example/1pda,GET,Allowed,,News,,,1563,42962,200,Mozilla/5.0
+2026-08-03T15:43:42.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://search.example/g7k,GET,Allowed,,Search Engines,,,910,38232,200,Mozilla/5.0
+2026-08-03T15:54:20.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/uqj,GET,Allowed,,News,,,825,26017,200,Mozilla/5.0
+2026-08-03T15:56:19.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://shop.example/ley,GET,Allowed,,Shopping,,,1498,11144,200,Mozilla/5.0
+2026-08-03T15:57:46.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://social.example/t08,GET,Allowed,,Social Networking,,,270,49946,200,Mozilla/5.0
+2026-08-03T16:16:18.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/177u,GET,Allowed,,Business,,,298,8386,200,Mozilla/5.0
+2026-08-03T16:25:42.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://linkedin.example/20ct,GET,Allowed,,Social Networking,,,911,37694,200,Mozilla/5.0
+2026-08-03T16:25:49.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://linkedin.example/1oh9,GET,Allowed,,Social Networking,,,1225,9986,200,Mozilla/5.0
+2026-08-03T16:27:04.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/21sk,GET,Allowed,,Business,,,1236,48232,200,Mozilla/5.0
+2026-08-03T16:27:56.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://social.example/lo0,GET,Allowed,,Social Networking,,,690,5838,200,Mozilla/5.0
+2026-08-03T16:28:09.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://store.example/1vze,GET,Allowed,,Shopping,,,445,40400,200,Mozilla/5.0
+2026-08-03T16:32:17.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://docs.example/228q,GET,Allowed,,Business,,,1167,15625,200,Mozilla/5.0
+2026-08-03T16:32:56.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://social.example/mxj,GET,Allowed,,Social Networking,,,335,46600,200,Mozilla/5.0
+2026-08-03T16:44:58.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://docs.example/202i,GET,Allowed,,Business,,,193,17686,200,Mozilla/5.0
+2026-08-03T16:46:44.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://lookup.example/kjz,GET,Allowed,,Search Engines,,,711,29099,200,Mozilla/5.0
+2026-08-03T16:48:00.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://social.example/1my1,GET,Allowed,,Social Networking,,,1593,37449,200,Mozilla/5.0
+2026-08-03T16:52:29.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://social.example/2g4,GET,Allowed,,Social Networking,,,1721,48242,200,Mozilla/5.0
+2026-08-03T16:58:26.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/3dc,GET,Allowed,,Search Engines,,,402,5205,200,Mozilla/5.0
+2026-08-03T16:59:20.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://example.com/5k3,GET,Allowed,,General,,,435,46829,200,Mozilla/5.0
+2026-08-03T17:00:11.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://music.example/fof,GET,Allowed,,Streaming Media,,,247,47540,200,Mozilla/5.0
+2026-08-03T17:00:24.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://search.example/2479,GET,Allowed,,Search Engines,,,1818,26219,200,Mozilla/5.0
+2026-08-03T17:01:18.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://news.example/1hfa,GET,Allowed,,News,,,284,44263,200,Mozilla/5.0
+2026-08-03T17:07:04.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://search.example/nh3,GET,Allowed,,Search Engines,,,1492,23452,200,Mozilla/5.0
+2026-08-03T17:09:11.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://lookup.example/5q5,GET,Allowed,,Search Engines,,,270,4918,200,Mozilla/5.0
+2026-08-03T17:14:16.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://video.example/oqw,GET,Allowed,,Streaming Media,,,1554,10940,200,Mozilla/5.0
+2026-08-03T17:20:47.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://wikipedia.example/1agz,GET,Allowed,,General,,,1522,36091,200,Mozilla/5.0
+2026-08-03T17:24:50.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://docs.example/u5z,GET,Allowed,,Business,,,774,9629,200,Mozilla/5.0
+2026-08-03T17:36:15.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://lookup.example/15ln,GET,Allowed,,Search Engines,,,1986,9921,200,Mozilla/5.0
+2026-08-03T17:45:38.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://salesforce.example/osj,GET,Allowed,,Business,,,518,13854,200,Mozilla/5.0
+2026-08-03T17:53:33.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://linkedin.example/a5t,GET,Allowed,,Social Networking,,,1883,25885,200,Mozilla/5.0
+2026-08-03T17:55:04.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://video.example/1vyw,GET,Allowed,,Streaming Media,,,799,15493,200,Mozilla/5.0
+2026-08-03T17:59:37.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://example.com/a18,GET,Allowed,,General,,,475,10367,200,Mozilla/5.0
+2026-08-03T17:59:39.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://shop.example/1lrk,GET,Allowed,,Shopping,,,439,16191,200,Mozilla/5.0
+2026-08-03T18:06:39.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://video.example/1oln,GET,Allowed,,Streaming Media,,,580,13039,200,Mozilla/5.0
+2026-08-03T18:08:34.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://headlines.example/91k,GET,Allowed,,News,,,1377,1906,200,Mozilla/5.0
+2026-08-03T18:10:19.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://wikipedia.example/1q6v,GET,Allowed,,General,,,565,3297,200,Mozilla/5.0
+2026-08-03T18:15:14.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://linkedin.example/2471,GET,Allowed,,Social Networking,,,1440,34839,200,Mozilla/5.0
+2026-08-03T18:21:40.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://shop.example/83u,GET,Allowed,,Shopping,,,270,23210,200,Mozilla/5.0
+2026-08-03T18:23:00.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://shop.example/5xb,GET,Allowed,,Shopping,,,1360,47939,200,Mozilla/5.0
+2026-08-03T18:26:08.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://wikipedia.example/24i2,GET,Allowed,,General,,,1463,36381,200,Mozilla/5.0
+2026-08-03T18:33:05.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://shop.example/1oop,GET,Allowed,,Shopping,,,236,42103,200,Mozilla/5.0
+2026-08-03T18:33:24.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://news.example/1sif,GET,Allowed,,News,,,2028,1973,200,Mozilla/5.0
+2026-08-03T18:37:49.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/lq8,GET,Allowed,,News,,,1722,12593,200,Mozilla/5.0
+2026-08-03T18:40:47.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://lookup.example/cqa,GET,Allowed,,Search Engines,,,1886,25672,200,Mozilla/5.0
+2026-08-03T18:44:05.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://store.example/1gd0,GET,Allowed,,Shopping,,,378,33514,200,Mozilla/5.0
+2026-08-03T18:45:25.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://music.example/1z50,GET,Allowed,,Streaming Media,,,451,42310,200,Mozilla/5.0
+2026-08-03T18:58:37.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/1qmi,GET,Allowed,,Search Engines,,,1880,25742,200,Mozilla/5.0
+2026-08-03T19:11:24.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://search.example/d8e,GET,Allowed,,Search Engines,,,1594,22709,200,Mozilla/5.0
+2026-08-03T19:11:38.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://store.example/kr7,GET,Allowed,,Shopping,,,1214,16516,200,Mozilla/5.0
+2026-08-03T19:19:09.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://wikipedia.example/1f71,GET,Allowed,,General,,,1543,7476,200,Mozilla/5.0
+2026-08-03T19:21:54.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://shop.example/50t,GET,Allowed,,Shopping,,,1067,21021,200,Mozilla/5.0
+2026-08-03T19:23:57.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://video.example/165r,GET,Allowed,,Streaming Media,,,1007,14296,200,Mozilla/5.0
+2026-08-03T19:30:41.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://headlines.example/l91,GET,Allowed,,News,,,627,41084,200,Mozilla/5.0
+2026-08-03T19:32:16.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://docs.example/p3k,GET,Allowed,,Business,,,1448,31384,200,Mozilla/5.0
+2026-08-03T19:36:49.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://search.example/1p4g,GET,Allowed,,Search Engines,,,193,21407,200,Mozilla/5.0
+2026-08-03T19:37:38.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://example.com/157i,GET,Allowed,,General,,,293,6839,200,Mozilla/5.0
+2026-08-03T19:43:26.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://linkedin.example/1ag7,GET,Allowed,,Social Networking,,,1687,27560,200,Mozilla/5.0
+2026-08-03T19:47:47.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://linkedin.example/jo1,GET,Allowed,,Social Networking,,,187,29166,200,Mozilla/5.0
+2026-08-03T19:48:53.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/1v7l,GET,Allowed,,Search Engines,,,1258,2143,200,Mozilla/5.0
+2026-08-03T19:55:23.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/s6v,GET,Allowed,,News,,,737,37977,200,Mozilla/5.0
+2026-08-03T19:55:38.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://shop.example/1w2d,GET,Allowed,,Shopping,,,1907,2355,200,Mozilla/5.0
+2026-08-03T20:05:43.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://salesforce.example/oga,GET,Allowed,,Business,,,451,12214,200,Mozilla/5.0
+2026-08-03T20:06:26.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://video.example/1fcy,GET,Allowed,,Streaming Media,,,1487,23956,200,Mozilla/5.0
+2026-08-03T20:06:54.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://news.example/205b,GET,Allowed,,News,,,2085,13615,200,Mozilla/5.0
+2026-08-03T20:11:01.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://search.example/16ux,GET,Allowed,,Search Engines,,,1206,15794,200,Mozilla/5.0
+2026-08-03T20:27:32.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://news.example/1umb,GET,Allowed,,News,,,329,20103,200,Mozilla/5.0
+2026-08-03T20:32:48.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://salesforce.example/d3m,GET,Allowed,,Business,,,1581,41676,200,Mozilla/5.0
+2026-08-03T20:40:11.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://store.example/1c8z,GET,Allowed,,Shopping,,,1210,28249,200,Mozilla/5.0
+2026-08-03T20:43:34.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://wikipedia.example/1fp6,GET,Allowed,,General,,,911,25328,200,Mozilla/5.0
+2026-08-03T20:49:01.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://wikipedia.example/1k0z,GET,Allowed,,General,,,1389,1400,200,Mozilla/5.0
+2026-08-03T20:50:56.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://video.example/20ll,GET,Allowed,,Streaming Media,,,1992,42817,200,Mozilla/5.0
+2026-08-03T20:51:15.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://salesforce.example/18v,GET,Allowed,,Business,,,2082,37492,200,Mozilla/5.0
+2026-08-03T20:52:39.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://video.example/1uuh,GET,Allowed,,Streaming Media,,,2004,34041,200,Mozilla/5.0
+2026-08-03T20:54:05.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://linkedin.example/1rbr,GET,Allowed,,Social Networking,,,1404,35078,200,Mozilla/5.0
+2026-08-03T20:57:50.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://salesforce.example/d61,GET,Allowed,,Business,,,506,48805,200,Mozilla/5.0
+2026-08-03T21:08:06.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://search.example/7zt,GET,Allowed,,Search Engines,,,354,15103,200,Mozilla/5.0
+2026-08-03T21:11:29.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://social.example/235t,GET,Allowed,,Social Networking,,,755,12570,200,Mozilla/5.0
+2026-08-03T21:11:42.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://social.example/11x2,GET,Allowed,,Social Networking,,,1433,25982,200,Mozilla/5.0
+2026-08-03T21:16:11.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://video.example/e1r,GET,Allowed,,Streaming Media,,,462,10703,200,Mozilla/5.0
+2026-08-03T21:16:38.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://shop.example/yls,GET,Allowed,,Shopping,,,371,3394,200,Mozilla/5.0
+2026-08-03T21:17:41.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://linkedin.example/h9r,GET,Allowed,,Social Networking,,,550,17207,200,Mozilla/5.0
+2026-08-03T21:28:37.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://wikipedia.example/yna,GET,Allowed,,General,,,506,42344,200,Mozilla/5.0
+2026-08-03T21:34:45.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://wikipedia.example/bca,GET,Allowed,,General,,,360,13152,200,Mozilla/5.0
+2026-08-03T21:36:24.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://docs.example/1vrr,GET,Allowed,,Business,,,1061,28488,200,Mozilla/5.0
+2026-08-03T21:36:37.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://store.example/1xs4,GET,Allowed,,Shopping,,,1908,11771,200,Mozilla/5.0
+2026-08-03T21:40:54.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://shop.example/1xha,GET,Allowed,,Shopping,,,161,32746,200,Mozilla/5.0
+2026-08-03T21:43:17.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://store.example/rhh,GET,Allowed,,Shopping,,,818,25259,200,Mozilla/5.0
+2026-08-03T21:45:14.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://headlines.example/dsv,GET,Allowed,,News,,,980,42184,200,Mozilla/5.0
+2026-08-03T21:58:45.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://news.example/hpg,GET,Allowed,,News,,,263,49527,200,Mozilla/5.0
+2026-08-03T22:00:19.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://example.com/b4m,GET,Allowed,,General,,,1852,26755,200,Mozilla/5.0
+2026-08-03T22:06:09.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://social.example/1ibz,GET,Allowed,,Social Networking,,,1022,24644,200,Mozilla/5.0
+2026-08-03T22:08:12.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://salesforce.example/kn4,GET,Allowed,,Business,,,1647,1955,200,Mozilla/5.0
+2026-08-03T22:14:12.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://social.example/iyv,GET,Allowed,,Social Networking,,,904,37912,200,Mozilla/5.0
+2026-08-03T22:15:46.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://wikipedia.example/14mz,GET,Allowed,,General,,,1486,50054,200,Mozilla/5.0
+2026-08-03T22:17:27.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://search.example/1ny,GET,Allowed,,Search Engines,,,1362,24184,200,Mozilla/5.0
+2026-08-03T22:25:58.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://salesforce.example/z72,GET,Allowed,,Business,,,270,30398,200,Mozilla/5.0
+2026-08-03T22:29:02.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://music.example/11a2,GET,Allowed,,Streaming Media,,,1175,37154,200,Mozilla/5.0
+2026-08-03T22:33:39.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://wikipedia.example/od6,GET,Allowed,,General,,,350,47014,200,Mozilla/5.0
+2026-08-03T22:38:51.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://music.example/17tl,GET,Allowed,,Streaming Media,,,530,31547,200,Mozilla/5.0
+2026-08-03T22:48:05.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://headlines.example/16j0,GET,Allowed,,News,,,735,13841,200,Mozilla/5.0
+2026-08-03T22:53:40.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://news.example/1nq0,GET,Allowed,,News,,,127,22430,200,Mozilla/5.0
+2026-08-03T22:57:34.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://wikipedia.example/b4h,GET,Allowed,,General,,,297,32926,200,Mozilla/5.0
+2026-08-03T22:57:43.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://music.example/170i,GET,Allowed,,Streaming Media,,,479,44446,200,Mozilla/5.0
+2026-08-03T23:00:07.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/aqx,GET,Allowed,,Business,,,1960,41715,200,Mozilla/5.0
+2026-08-03T23:10:12.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://social.example/60t,GET,Allowed,,Social Networking,,,1459,48854,200,Mozilla/5.0
+2026-08-03T23:17:56.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://docs.example/16sx,GET,Allowed,,Business,,,751,44731,200,Mozilla/5.0
+2026-08-03T23:19:54.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://docs.example/33g,GET,Allowed,,Business,,,1868,28284,200,Mozilla/5.0
+2026-08-03T23:21:09.000Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://search.example/1ljj,GET,Allowed,,Search Engines,,,231,46567,200,Mozilla/5.0
+2026-08-03T23:22:50.000Z,khan,Marketing,10.0.4.8,93.184.216.34,https://docs.example/t37,GET,Allowed,,Business,,,2065,2289,200,Mozilla/5.0
+2026-08-03T23:27:55.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://search.example/ekb,GET,Allowed,,Search Engines,,,971,10080,200,Mozilla/5.0
+2026-08-03T23:28:33.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://news.example/4j4,GET,Allowed,,News,,,1180,12374,200,Mozilla/5.0
+2026-08-03T23:30:39.000Z,rlee,Engineering,10.0.1.30,93.184.216.34,https://headlines.example/15n3,GET,Allowed,,News,,,1850,35246,200,Mozilla/5.0
+2026-08-03T23:32:51.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://music.example/16a2,GET,Allowed,,Streaming Media,,,1912,36897,200,Mozilla/5.0
+2026-08-03T23:38:03.000Z,bwong,Finance,10.0.3.5,93.184.216.34,https://social.example/5k7,GET,Allowed,,Social Networking,,,1068,36261,200,Mozilla/5.0
+2026-08-03T23:50:43.000Z,mpatel,HR,10.0.5.12,93.184.216.34,https://example.com/1ehm,GET,Allowed,,General,,,1172,35132,200,Mozilla/5.0
+2026-08-03T23:55:49.000Z,agarcia,Sales,10.0.2.20,93.184.216.34,https://store.example/13yj,GET,Allowed,,Shopping,,,1364,30928,200,Mozilla/5.0
+2026-08-03T23:58:45.000Z,tnguyen,Sales,10.0.2.44,93.184.216.34,https://wikipedia.example/1gme,GET,Allowed,,General,,,1472,45700,200,Mozilla/5.0
