@@ -4,7 +4,7 @@ export interface Upload {
   id: number;
   user_id: number;
   filename: string;
-  file_path: string;
+  file_path: string | null;
   status: 'processing' | 'complete' | 'failed';
   total_lines: number;
   parsed_lines: number;
@@ -14,7 +14,7 @@ export interface Upload {
 export async function createUpload(
   userId: number,
   filename: string,
-  filePath: string,
+  filePath: string | null,
   totalLines: number
 ): Promise<Upload> {
   const pool = getPool();

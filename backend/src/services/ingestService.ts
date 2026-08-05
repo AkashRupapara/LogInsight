@@ -1,11 +1,10 @@
-import fs from 'fs';
 import { getPool } from '../db/pool';
 import { parseZscalerLine } from './zscalerParser';
 import { detectAnomalies, type StoredLogEntry } from './anomalyEngine';
 
-export async function ingestUploadFile(uploadId: number, filePath: string): Promise<void> {
+export async function ingestUploadFile(uploadId: number, fileBuffer: Buffer): Promise<void> {
   const pool = getPool();
-  const contents = fs.readFileSync(filePath, 'utf-8');
+  const contents = fileBuffer.toString('utf-8');
   const lines = contents.split('\n').filter((line) => line.trim().length > 0);
 
   const client = await pool.connect();

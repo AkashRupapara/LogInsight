@@ -9,7 +9,6 @@ flowchart LR
     UI["React SPA<br/>Login / Upload / Dashboard"]
     AUTH["Auth API<br/>signup, login, JWT"]
     UPLOAD["Upload API"]
-    STORAGE[("Raw file storage")]
     PARSER["Log Parser"]
     ANOMALY["Anomaly Engine"]
     DB[("PostgreSQL")]
@@ -18,7 +17,6 @@ flowchart LR
     UI -->|"1. signup / login"| AUTH
     AUTH -->|JWT| UI
     UI -->|"2. upload log file"| UPLOAD
-    UPLOAD --> STORAGE
     UPLOAD --> PARSER
     PARSER --> DB
     PARSER --> ANOMALY
@@ -28,7 +26,7 @@ flowchart LR
     DASH --> UI
 ```
 
-**Flow in words:** the analyst logs in (JWT issued by the auth API), uploads a log file (raw copy saved to disk, contents parsed into structured rows in Postgres), a rule-based engine scans those rows for anomalies, and the dashboard API serves summary/timeline/table/anomaly data back to the UI.
+**Flow in words:** the analyst logs in (JWT issued by the auth API), uploads a log file (parsed in-memory into structured rows in Postgres — the raw file itself isn't persisted, see [Limitations](#limitations)), a rule-based engine scans those rows for anomalies, and the dashboard API serves summary/timeline/table/anomaly data back to the UI.
 
 ## Screenshots
 
@@ -155,6 +153,17 @@ cd ../frontend
 npm test
 ```
 
+## Live Deployment
+
+**Live link:** _to be added — temporary deployment, up only for the duration of evaluation (see [Limitations](#limitations))._
+
+Deployed as two Vercel projects (frontend + backend) sharing a free [Neon](https://neon.tech) Postgres database. Steps to reproduce:
+
+1. **Database (Neon):** create a free project, copy the **pooled** connection string (Connection Details → toggle "Pooled connection" — required for serverless, since each function invocation opens a fresh connection and the direct connection string exhausts Postgres's connection limit quickly), then apply the schema once: `psql "<connection-string>" -f backend/db/init.sql`.
+2. **Backend:** on vercel.com, "Add New Project" → import this repo → set **Root Directory** to `backend`. Add env vars `DATABASE_URL` (the pooled string from step 1) and `JWT_SECRET` (any long random value). Deploy — this runs the Express app as a serverless function via [`backend/api/[...path].ts`](<backend/api/[...path].ts>).
+3. **Frontend:** edit [`frontend/vercel.json`](frontend/vercel.json)'s rewrite destination to point at the backend project's deployed URL from step 2, then "Add New Project" again with **Root Directory** `frontend` and deploy. The rewrite proxies `/api/*` to the backend so the frontend's existing same-origin `fetch('/api/...')` calls work unchanged, with no CORS configuration needed.
+4. Back on the backend project, set `FRONTEND_ORIGIN` to the frontend's URL from step 3 and redeploy.
+
 ## API Reference
 
 All routes are prefixed `/api`. Routes marked 🔒 require `Authorization: Bearer <token>`.
@@ -187,3 +196,9 @@ node sample-logs/generate-sample-logs.js
 ```
 
 The generator uses a seeded PRNG, so re-running it reproduces the same files.
+
+## Limitations
+
+- **The live deployment is temporary** — it's up only for the duration of evaluation (a couple of weeks) and will be torn down afterward. Everything below still applies to a local Docker Compose run indefinitely.
+- **The raw uploaded file isn't persisted anywhere**, on Vercel or locally. It's parsed entirely in memory in the same request it's uploaded in; only the structured rows in `log_entries` (and any resulting `anomalies`) are stored. Nothing in the UI reads the raw file after that point, so this doesn't affect any feature — it only means there's no original copy to go back to.
+- **No retry-on-failure.** If ingestion fails partway (a bad DB connection, the process getting killed mid-request), the upload is marked `failed` and the fix today is to re-upload — there's no background job or "retry" affordance built on top of the (now nonexistent) stored file. Per-line parse errors are already handled gracefully and don't trigger this: malformed lines are skipped, not fatal.

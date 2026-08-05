@@ -13,7 +13,10 @@ CREATE TABLE IF NOT EXISTS uploads (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     filename TEXT NOT NULL,
-    file_path TEXT NOT NULL,
+    -- Nullable: uploads are parsed from an in-memory buffer and never written to
+    -- disk (see README's deployment/limitations section), so there's no real
+    -- path to store.
+    file_path TEXT,
     status TEXT NOT NULL DEFAULT 'processing'
         CHECK (status IN ('processing', 'complete', 'failed')),
     total_lines INTEGER NOT NULL DEFAULT 0,

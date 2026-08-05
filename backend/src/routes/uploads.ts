@@ -1,6 +1,4 @@
-import { randomUUID } from 'crypto';
 import path from 'path';
-import fs from 'fs';
 import { NextFunction, Request, Response, Router } from 'express';
 import multer from 'multer';
 import { AuthenticatedRequest, requireAuth } from '../middleware/auth';
@@ -8,22 +6,14 @@ import { asyncHandler } from '../utils/asyncHandler';
 import { createUpload, getUploadForUser, listUploadsForUser } from '../services/uploadService';
 import { ingestUploadFile } from '../services/ingestService';
 
-const UPLOAD_DIR = path.join(process.cwd(), 'uploads');
 const ALLOWED_EXTENSIONS = new Set(['.log', '.txt']);
 const MAX_FILE_SIZE = 25 * 1024 * 1024; // 25MB
 
-fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-
-const storage = multer.diskStorage({
-  destination: UPLOAD_DIR,
-  filename: (_req, file, cb) => {
-    const ext = path.extname(file.originalname).toLowerCase();
-    cb(null, `${randomUUID()}${ext}`);
-  },
-});
-
+// In-memory storage: the file is parsed into log_entries within this same
+// request and never needs to touch disk. This also makes the app deployable
+// on serverless platforms (e.g. Vercel) with no writable/persistent filesystem.
 const upload = multer({
-  storage,
+  storage: multer.memoryStorage(),
   limits: { fileSize: MAX_FILE_SIZE },
   fileFilter: (_req, file, cb) => {
     const ext = path.extname(file.originalname).toLowerCase();
@@ -48,11 +38,11 @@ uploadsRouter.post(
       return;
     }
 
-    const contents = fs.readFileSync(req.file.path, 'utf-8');
+    const contents = req.file.buffer.toString('utf-8');
     const totalLines = contents.split('\n').filter((line) => line.trim().length > 0).length;
 
-    const record = await createUpload(req.userId!, req.file.originalname, req.file.path, totalLines);
-    await ingestUploadFile(record.id, req.file.path);
+    const record = await createUpload(req.userId!, req.file.originalname, null, totalLines);
+    await ingestUploadFile(record.id, req.file.buffer);
     const finalRecord = await getUploadForUser(req.userId!, record.id);
     res.status(201).json(finalRecord);
   })
