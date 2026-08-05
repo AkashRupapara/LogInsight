@@ -1,5 +1,11 @@
 const TOKEN_KEY = 'loginsight_token';
 
+// Empty by default so local dev keeps using a relative /api path, proxied to
+// the backend by Vite's dev server (see vite.config.ts). In production, set
+// VITE_API_BASE_URL to the deployed backend's origin (no trailing slash) -
+// Vite bakes it into the build at build time, not read at runtime.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? '';
+
 export function getToken(): string | null {
   return localStorage.getItem(TOKEN_KEY);
 }
@@ -28,7 +34,7 @@ export async function apiFetch<T>(path: string, options: RequestInit = {}): Prom
     headers['Content-Type'] = 'application/json';
   }
 
-  const res = await fetch(`/api${path}`, { ...options, headers });
+  const res = await fetch(`${API_BASE_URL}/api${path}`, { ...options, headers });
 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));

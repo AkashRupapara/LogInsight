@@ -161,8 +161,8 @@ Deployed as two Vercel projects (frontend + backend) sharing a free [Neon](https
 
 1. **Database (Neon):** create a free project, copy the **pooled** connection string (Connection Details → toggle "Pooled connection" — required for serverless, since each function invocation opens a fresh connection and the direct connection string exhausts Postgres's connection limit quickly), then apply the schema once: `psql "<connection-string>" -f backend/db/init.sql`.
 2. **Backend:** on vercel.com, "Add New Project" → import this repo → set **Root Directory** to `backend`. Add env vars `DATABASE_URL` (the pooled string from step 1) and `JWT_SECRET` (any long random value). Deploy — this runs the Express app as a serverless function via [`backend/api/[...path].ts`](<backend/api/[...path].ts>).
-3. **Frontend:** edit [`frontend/vercel.json`](frontend/vercel.json)'s rewrite destination to point at the backend project's deployed URL from step 2, then "Add New Project" again with **Root Directory** `frontend` and deploy. The rewrite proxies `/api/*` to the backend so the frontend's existing same-origin `fetch('/api/...')` calls work unchanged, with no CORS configuration needed.
-4. Back on the backend project, set `FRONTEND_ORIGIN` to the frontend's URL from step 3 and redeploy.
+3. **Frontend:** "Add New Project" again with **Root Directory** `frontend`. Add env var `VITE_API_BASE_URL` set to the backend's URL from step 2 (no trailing slash) — the frontend calls the backend's absolute URL directly, relying on CORS rather than a same-project proxy (cross-project rewrites to an external URL turned out to be unreliable for multi-segment paths on Vercel). Deploy.
+4. Back on the backend project, set `FRONTEND_ORIGIN` to the frontend's URL from step 3 — **no trailing slash**, it must match the browser's `Origin` header exactly — and redeploy.
 
 ## API Reference
 
