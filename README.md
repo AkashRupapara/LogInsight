@@ -52,7 +52,7 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] Backend: ingest service (parse file → bulk insert `log_entries`) + tests
 - [x] Backend: summary/timeline/entries read endpoints + tests
 - [x] Frontend: auth pages (login/signup) + auth context wired to backend
-- [ ] Frontend: upload page
+- [x] Frontend: upload page
 - [ ] Frontend: dashboard — summary cards, timeline chart, paginated log table
 - [ ] End-to-end check: sign up, log in, upload a sample file, see it on the dashboard
 

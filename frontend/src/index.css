@@ -184,3 +184,54 @@ textarea {
   color: #e0384a;
   font-size: 14px;
 }
+
+.page {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+  text-align: left;
+  font-size: 32px;
+}
+
+.upload-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 16px;
+  margin: 20px 0;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.uploads-table {
+  overflow-x: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 16px;
+  }
+}
