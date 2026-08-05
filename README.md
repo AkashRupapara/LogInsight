@@ -53,8 +53,8 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] Backend: summary/timeline/entries read endpoints + tests
 - [x] Frontend: auth pages (login/signup) + auth context wired to backend
 - [x] Frontend: upload page
-- [ ] Frontend: dashboard — summary cards, timeline chart, paginated log table
-- [ ] End-to-end check: sign up, log in, upload a sample file, see it on the dashboard
+- [x] Frontend: dashboard — summary cards, timeline chart, paginated log table
+- [x] End-to-end check: sign up, log in, upload a sample file, see it on the dashboard
 
 ### Phase 2 — Bonus: anomaly detection
 - [ ] Anomaly engine: rate-spike-per-IP rule + test
