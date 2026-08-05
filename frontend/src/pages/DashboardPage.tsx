@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { apiFetch, ApiError } from '../api/client';
 import { AppHeader } from '../components/AppHeader';
@@ -6,11 +6,20 @@ import { SummaryCards, type Summary } from '../components/SummaryCards';
 import { TimelineChart, type TimelineBucket } from '../components/TimelineChart';
 import { LogTable, type LogEntry, type Anomaly } from '../components/LogTable';
 
+const PAGE_SIZE = 100;
+
+interface EntriesPage {
+  entries: LogEntry[];
+  nextCursor: string | null;
+}
+
 export function DashboardPage() {
   const { id } = useParams();
   const [summary, setSummary] = useState<Summary | null>(null);
   const [timeline, setTimeline] = useState<TimelineBucket[]>([]);
   const [entries, setEntries] = useState<LogEntry[]>([]);
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [anomalies, setAnomalies] = useState<Anomaly[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -18,17 +27,34 @@ export function DashboardPage() {
     Promise.all([
       apiFetch<Summary>(`/uploads/${id}/summary`),
       apiFetch<TimelineBucket[]>(`/uploads/${id}/timeline`),
-      apiFetch<LogEntry[]>(`/uploads/${id}/entries?limit=200`),
+      apiFetch<EntriesPage>(`/uploads/${id}/entries?limit=${PAGE_SIZE}`),
       apiFetch<Anomaly[]>(`/uploads/${id}/anomalies`),
     ])
-      .then(([s, t, e, a]) => {
+      .then(([s, t, entriesPage, a]) => {
         setSummary(s);
         setTimeline(t);
-        setEntries(e);
+        setEntries(entriesPage.entries);
+        setNextCursor(entriesPage.nextCursor);
         setAnomalies(a);
       })
       .catch((err) => setError(err instanceof ApiError ? err.message : 'Failed to load upload'));
   }, [id]);
+
+  const loadMore = useCallback(async () => {
+    if (!nextCursor || loadingMore) return;
+    setLoadingMore(true);
+    try {
+      const page = await apiFetch<EntriesPage>(
+        `/uploads/${id}/entries?limit=${PAGE_SIZE}&cursor=${encodeURIComponent(nextCursor)}`
+      );
+      setEntries((prev) => [...prev, ...page.entries]);
+      setNextCursor(page.nextCursor);
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : 'Failed to load more entries');
+    } finally {
+      setLoadingMore(false);
+    }
+  }, [id, nextCursor, loadingMore]);
 
   const anomaliesByEntry = useMemo(() => {
     const map = new Map<number, Anomaly[]>();
@@ -57,14 +83,17 @@ export function DashboardPage() {
 
         <h2>Log entries</h2>
         {anomalies.length > 0 && (
-          <p className="section-hint">
-            Rows highlighted in red were flagged by the anomaly engine — click one to see why and
-            how confident the detector is.
+          <p className="section-hint section-hint-nowrap">
+            Rows highlighted in red were flagged by the anomaly engine — click one to see why and how confident the detector is.
           </p>
         )}
-        <div className="log-table-wrap">
-          <LogTable entries={entries} anomaliesByEntry={anomaliesByEntry} />
-        </div>
+        <LogTable
+          entries={entries}
+          anomaliesByEntry={anomaliesByEntry}
+          hasMore={nextCursor !== null}
+          loadingMore={loadingMore}
+          onLoadMore={loadMore}
+        />
       </div>
     </div>
   );
