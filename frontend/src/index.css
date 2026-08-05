@@ -109,3 +109,78 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+a {
+  color: var(--accent);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  padding: 8px 16px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  box-shadow: var(--shadow);
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.auth-page {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 360px;
+  text-align: left;
+}
+
+.auth-form h1 {
+  font-size: 32px;
+  margin: 0;
+  text-align: center;
+}
+
+.auth-form > p:first-of-type {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.form-error {
+  color: #e0384a;
+  font-size: 14px;
+}
