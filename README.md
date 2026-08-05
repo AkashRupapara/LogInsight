@@ -52,36 +52,6 @@ flowchart LR
 - **Anomaly detection:** rule-based/statistical (deterministic, explainable — see below)
 - **Deployment (local):** Docker Compose
 
-## Task Breakdown
-
-Built step by step; each step lands as its own commit with a passing test before moving on.
-
-### Phase 1 — Basic implementation
-- [x] Repo scaffold: `backend/` (Express+TS) and `frontend/` (Vite+React+TS) skeletons, `docker-compose.yml`, Postgres service
-- [x] Database schema (`users`, `uploads`, `log_entries`, `anomalies`) + migration/init script
-- [x] Backend auth: signup, login, JWT issue/verify middleware + tests
-- [x] Backend: file upload endpoint (raw file to disk/volume) + tests
-- [x] Backend: Zscaler log parser (line → structured row) + tests
-- [x] Backend: ingest service (parse file → bulk insert `log_entries`) + tests
-- [x] Backend: summary/timeline/entries read endpoints + tests
-- [x] Frontend: auth pages (login/signup) + auth context wired to backend
-- [x] Frontend: upload page
-- [x] Frontend: dashboard — summary cards, timeline chart, paginated log table
-- [x] End-to-end check: sign up, log in, upload a sample file, see it on the dashboard
-
-### Phase 2 — Bonus: anomaly detection
-- [x] Anomaly engine: rate-spike-per-IP rule + test
-- [x] Anomaly engine: blocked/malware-category rule + test
-- [x] Anomaly engine: off-hours + large-transfer rule + test
-- [x] Anomaly engine: rare domain/category rule + test
-- [x] Wire anomaly engine into ingest pipeline, persist to `anomalies` table
-- [x] Frontend: highlight anomalous rows in the log table, show explanation + confidence score
-
-### Phase 3 — Polish & deliverables
-- [x] Sample log generator + committed example log files (normal + with-anomalies)
-- [x] README: setup instructions, AI-usage explanation, API reference (this file, filled in as we go)
-- [x] Responsive/basic styling pass
-- [x] (Optional/bonus) live deployment
 
 ## AI Usage
 
@@ -211,3 +181,36 @@ This was built as a focused prototype, per the brief's "functionality over produ
 - **The live deployment is temporary** — it's up only for the duration of evaluation (a couple of weeks) and will be torn down afterward. Everything below still applies to a local Docker Compose run indefinitely.
 - **The raw uploaded file isn't persisted anywhere**, on Vercel or locally. It's parsed entirely in memory in the same request it's uploaded in; only the structured rows in `log_entries` (and any resulting `anomalies`) are stored. Nothing in the UI reads the raw file after that point, so this doesn't affect any feature — it only means there's no original copy to go back to.
 - **No retry-on-failure.** If ingestion fails partway (a bad DB connection, the process getting killed mid-request), the upload is marked `failed` and the fix today is to re-upload — there's no background job or "retry" affordance built on top of the (now nonexistent) stored file. Per-line parse errors are already handled gracefully and don't trigger this: malformed lines are skipped, not fatal.
+
+
+## Task Breakdown
+
+Built step by step; each step lands as its own commit with a passing test before moving on.
+
+### Phase 1 — Basic implementation
+- [x] Repo scaffold: `backend/` (Express+TS) and `frontend/` (Vite+React+TS) skeletons, `docker-compose.yml`, Postgres service
+- [x] Database schema (`users`, `uploads`, `log_entries`, `anomalies`) + migration/init script
+- [x] Backend auth: signup, login, JWT issue/verify middleware + tests
+- [x] Backend: file upload endpoint (raw file to disk/volume) + tests
+- [x] Backend: Zscaler log parser (line → structured row) + tests
+- [x] Backend: ingest service (parse file → bulk insert `log_entries`) + tests
+- [x] Backend: summary/timeline/entries read endpoints + tests
+- [x] Frontend: auth pages (login/signup) + auth context wired to backend
+- [x] Frontend: upload page
+- [x] Frontend: dashboard — summary cards, timeline chart, paginated log table
+- [x] End-to-end check: sign up, log in, upload a sample file, see it on the dashboard
+
+### Phase 2 — Bonus: anomaly detection
+- [x] Anomaly engine: rate-spike-per-IP rule + test
+- [x] Anomaly engine: blocked/malware-category rule + test
+- [x] Anomaly engine: off-hours + large-transfer rule + test
+- [x] Anomaly engine: rare domain/category rule + test
+- [x] Wire anomaly engine into ingest pipeline, persist to `anomalies` table
+- [x] Frontend: highlight anomalous rows in the log table, show explanation + confidence score
+
+### Phase 3 — Polish & deliverables
+- [x] Sample log generator + committed example log files (normal + with-anomalies)
+- [x] README: setup instructions, AI-usage explanation, API reference (this file, filled in as we go)
+- [x] Responsive/basic styling pass
+- [x] (Optional/bonus) live deployment
+
