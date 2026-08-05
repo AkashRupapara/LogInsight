@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://REPLACE-WITH-YOUR-BACKEND-PROJECT.vercel.app/api/$1"
+      "destination": "https://log-insight-seven.vercel.app/api/$1"
     },
     {
       "source": "/(.*)",
