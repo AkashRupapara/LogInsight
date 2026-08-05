@@ -54,7 +54,8 @@ describe('log analytics routes', () => {
       .get(`/api/uploads/${uploadId}/entries`)
       .set('Authorization', `Bearer ${token}`);
     expect(entriesRes.status).toBe(200);
-    expect(entriesRes.body).toHaveLength(2);
+    expect(entriesRes.body.entries).toHaveLength(2);
+    expect(entriesRes.body.nextCursor).toBeNull();
 
     expect(summaryRes.body.anomalyCount).toBeGreaterThan(0);
 
@@ -65,5 +66,40 @@ describe('log analytics routes', () => {
     expect(anomaliesRes.body.length).toBeGreaterThan(0);
     expect(anomaliesRes.body[0]).toHaveProperty('confidence');
     expect(anomaliesRes.body[0]).toHaveProperty('description');
+  });
+
+  it('paginates entries with a cursor, with no gaps or overlaps across pages', async () => {
+    const lines = Array.from({ length: 5 }, (_, i) =>
+      `2026-08-04T10:0${i}:00Z,jsmith,Engineering,10.0.1.15,93.184.216.34,https://example.com/${i},GET,Allowed,,General,,,100,200,200,Mozilla/5.0`
+    ).join('\n');
+
+    const uploadRes = await request(app)
+      .post('/api/uploads')
+      .set('Authorization', `Bearer ${token}`)
+      .attach('file', Buffer.from(lines), 'paginated.log');
+    const uploadId = uploadRes.body.id;
+
+    const page1 = await request(app)
+      .get(`/api/uploads/${uploadId}/entries?limit=2`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(page1.body.entries).toHaveLength(2);
+    expect(page1.body.nextCursor).not.toBeNull();
+
+    const page2 = await request(app)
+      .get(`/api/uploads/${uploadId}/entries?limit=2&cursor=${encodeURIComponent(page1.body.nextCursor)}`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(page2.body.entries).toHaveLength(2);
+    expect(page2.body.nextCursor).not.toBeNull();
+
+    const page3 = await request(app)
+      .get(`/api/uploads/${uploadId}/entries?limit=2&cursor=${encodeURIComponent(page2.body.nextCursor)}`)
+      .set('Authorization', `Bearer ${token}`);
+    expect(page3.body.entries).toHaveLength(1);
+    expect(page3.body.nextCursor).toBeNull();
+
+    const allIds = [...page1.body.entries, ...page2.body.entries, ...page3.body.entries].map(
+      (e: { id: number }) => e.id
+    );
+    expect(new Set(allIds).size).toBe(5);
   });
 });

@@ -45,9 +45,9 @@ logsRouter.get(
   '/entries',
   asyncHandler(async (req, res) => {
     const limit = Math.min(Number(req.query.limit) || 100, 500);
-    const offset = Number(req.query.offset) || 0;
-    const entries = await getEntries(Number(req.params.uploadId), limit, offset);
-    res.json(entries);
+    const cursor = typeof req.query.cursor === 'string' ? req.query.cursor : undefined;
+    const page = await getEntries(Number(req.params.uploadId), limit, cursor);
+    res.json(page);
   })
 );
 

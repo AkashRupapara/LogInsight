@@ -85,13 +85,53 @@ export async function getTimeline(uploadId: number): Promise<TimelineBucket[]> {
   return res.rows.map((r) => ({ bucket: r.bucket, allowed: r.allowed, blocked: r.blocked }));
 }
 
-export async function getEntries(uploadId: number, limit: number, offset: number) {
+// Cursor encodes the last row's (ts, id) - the compound sort key - so pagination
+// stays stable even when many entries share the same timestamp (log bursts).
+// pg returns `ts` as a JS Date, not a string - normalize to ISO so it round-trips
+// through Postgres's timestamptz parser on the next page's query.
+function encodeCursor(ts: string | Date, id: number): string {
+  const isoTs = ts instanceof Date ? ts.toISOString() : new Date(ts).toISOString();
+  return Buffer.from(`${isoTs}|${id}`, 'utf-8').toString('base64url');
+}
+
+function decodeCursor(cursor: string): { ts: string; id: number } | null {
+  try {
+    const [ts, idStr] = Buffer.from(cursor, 'base64url').toString('utf-8').split('|');
+    const id = Number(idStr);
+    if (!ts || Number.isNaN(id)) return null;
+    return { ts, id };
+  } catch {
+    return null;
+  }
+}
+
+export interface EntriesPage {
+  entries: unknown[];
+  nextCursor: string | null;
+}
+
+export async function getEntries(uploadId: number, limit: number, cursor?: string): Promise<EntriesPage> {
   const pool = getPool();
-  const res = await pool.query(
-    `SELECT * FROM log_entries WHERE upload_id = $1 ORDER BY ts LIMIT $2 OFFSET $3`,
-    [uploadId, limit, offset]
-  );
-  return res.rows;
+  const decoded = cursor ? decodeCursor(cursor) : null;
+
+  const res = decoded
+    ? await pool.query(
+        `SELECT * FROM log_entries
+         WHERE upload_id = $1 AND (ts, id) > ($2::timestamptz, $3)
+         ORDER BY ts ASC, id ASC LIMIT $4`,
+        [uploadId, decoded.ts, decoded.id, limit]
+      )
+    : await pool.query(
+        `SELECT * FROM log_entries WHERE upload_id = $1
+         ORDER BY ts ASC, id ASC LIMIT $2`,
+        [uploadId, limit]
+      );
+
+  const rows = res.rows;
+  const last = rows[rows.length - 1];
+  const nextCursor = rows.length === limit && last ? encodeCursor(last.ts, last.id) : null;
+
+  return { entries: rows, nextCursor };
 }
 
 export interface Anomaly {
