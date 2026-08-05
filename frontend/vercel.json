@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://log-insight-seven.vercel.app/api/$1"
+      "source": "/api/:path*",
+      "destination": "https://log-insight-seven.vercel.app/api/:path*"
     },
     {
       "source": "/(.*)",
