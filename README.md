@@ -30,6 +30,21 @@ flowchart LR
 
 **Flow in words:** the analyst logs in (JWT issued by the auth API), uploads a log file (raw copy saved to disk, contents parsed into structured rows in Postgres), a rule-based engine scans those rows for anomalies, and the dashboard API serves summary/timeline/table/anomaly data back to the UI.
 
+## Screenshots
+
+| Login | Upload |
+|---|---|
+| ![Login page](docs/screenshots/login.png) | ![Upload page with a completed upload](docs/screenshots/upload-page.png) |
+
+**Dashboard** — summary cards, timeline chart, and log table (light mode):
+![Dashboard](docs/screenshots/dashboard.png)
+
+**Anomaly detail** — clicking a flagged row expands its rule, description, and confidence score. This example shows all four detection rules firing in one upload: a large off-hours transfer, a rarely-seen category, a request-rate burst from one IP, and a blocked/malware hit:
+![Anomaly detail expanded in the log table](docs/screenshots/anomaly-detail.png)
+
+**Dark mode** (manual toggle, top-right of the header):
+![Dashboard in dark mode](docs/screenshots/dashboard-dark.png)
+
 ## Tech Stack
 
 - **Frontend:** React + TypeScript + Vite (SPA)
@@ -62,7 +77,7 @@ Built step by step; each step lands as its own commit with a passing test before
 - [x] Anomaly engine: off-hours + large-transfer rule + test
 - [x] Anomaly engine: rare domain/category rule + test
 - [x] Wire anomaly engine into ingest pipeline, persist to `anomalies` table
-- [ ] Frontend: highlight anomalous rows in the log table, show explanation + confidence score
+- [x] Frontend: highlight anomalous rows in the log table, show explanation + confidence score
 
 ### Phase 3 — Polish & deliverables
 - [ ] Sample log generator + committed example log files (normal + with-anomalies)
