@@ -2,6 +2,8 @@
 
 A full-stack SOC log analysis tool. Users log in, upload a Zscaler-style web proxy log file, and get a human-consumable breakdown of the traffic — summary stats, a timeline of events, and (bonus) rule-based anomaly detection with explanations and confidence scores.
 
+Video demo: https://drive.google.com/file/d/1xxJ6_VOjyEahqyUkjA6-rq9M1shdD-BL/view?usp=sharing
+
 ## Architecture
 
 ```mermaid
